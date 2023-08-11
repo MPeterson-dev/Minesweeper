@@ -1,0 +1,13 @@
+﻿@model Milestone.Models.UserModel
+<div class="container" style="margin-top:3em;">
+
+<div>
+    <h4>You failed to login</h4>
+    <hr />
+    <p>@Model.UserName and @Model.Password was incorrect</p>
+</div>
+<div>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    <a asp-action="Index">Back to List</a>
+</div>
+</div>
