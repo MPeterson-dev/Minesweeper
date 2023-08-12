@@ -19,3 +19,25 @@ body {
     font-weight: normal;
     font-style: normal;
 }
+
+.padding {
+    padding-top:2em 0;
+}
+
+.bomb {
+    position:relative;
+    left: 40px;
+}
+
+.title {
+    font-size: 8em;
+    font-weight: 700;
+    margin: 0;
+    color: #FFFFFF;
+    background: #fbf8ec;
+    font-family: "Bungee";
+    background: -moz-linear-gradient(top, #FFFFFF 35%, #4e6773 100%);
+    background: -webkit-linear-gradient(top, #FFFFFF 35%, #4e6773 100%);
+    background: linear-gradient(to bottom, #FFFFFF 35%, #4e6773 100%);
+    -webkit-background-clip: text;
+}
