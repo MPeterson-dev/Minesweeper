@@ -2,28 +2,18 @@
 using Milestone.Models;
 using System;
 using System.Diagnostics;
+using System.Linq;
 
 namespace Milestone.Controllers
 {
     public class MinesweeperController : Controller
     {
-        BoardModel board = new BoardModel(10);
+        static BoardModel board = new BoardModel(10);
         static List<ButtonModel> buttons = new List<ButtonModel>();
 
         public IActionResult Index()
         {
-            buttons = new List<ButtonModel>();
-
-            board.setupLiveNeighbors(0.4);
-            board.calculateLiveNeighbors();
-            printBoards(board);
-            for (int row = 0; row < board.getSize(); row++)
-            {
-                for (int col = 0; col < board.getSize(); col++)
-                {
-                    buttons.Add(new ButtonModel(row, col, 0));
-                }
-            }
+            buttons = resetGame();
 
             return View("Index", buttons);
         }
@@ -36,10 +26,17 @@ namespace Milestone.Controllers
             if (board.Grid[row, col].Live == false)
             {
                 buttons.ElementAt(bN).ButtonState = 2;
+                board.Grid[row, col].Visited = true;
+                board.FloodFill(row, col);
+                setButtonState();
             }
             else
             {
-                buttons.ElementAt(bN).ButtonState = 1;
+                revealButtons();
+            }
+            if (board.winner() == true)
+            {
+                return View("GameWin");
             }
             return View("Index", buttons);
         }
@@ -85,6 +82,62 @@ namespace Milestone.Controllers
             for (int i = 0; i < size; i++)
             {
                 Debug.Write("+---");
+            }
+        }
+
+        private List<ButtonModel> resetGame()
+        {
+            buttons = new List<ButtonModel>();
+
+            board.resetBoard();
+            board.setupLiveNeighbors(0.4);
+            board.calculateLiveNeighbors();
+            printBoards(board);
+
+            for (int row = 0; row < board.getSize(); row++)
+            {
+                for (int col = 0; col < board.getSize(); col++)
+                {
+                    buttons.Add(new ButtonModel(row, col, 0));
+                }
+            }
+
+            return buttons;
+        }
+
+        private void setButtonState()
+        {
+            for (int row = 0; row < board.getSize(); row++)
+            {
+                for (int col = 0; col < board.getSize(); col++)
+                {
+                    if (board.Grid[row,col].Visited == true )
+                    {
+                        int rowcol = Convert.ToInt32(row.ToString() + col.ToString());
+                        buttons.ElementAt(rowcol).numOfNeighbors = board.Grid[row, col].Neighbors;
+                        buttons.ElementAt(rowcol).ButtonState = 2;
+                    }
+                }
+            }
+        }
+
+        private void revealButtons()
+        {
+            for (int row = 0; row < board.getSize(); row++)
+            {
+                for (int col = 0; col < board.getSize(); col++)
+                {
+                    int rowcol = Convert.ToInt32(row.ToString() + col.ToString());
+                    if (board.Grid[row,col].Live == true)
+                    {
+                        buttons.ElementAt(rowcol).ButtonState = 1;
+                    }
+                    else
+                    {
+                        buttons.ElementAt(rowcol).numOfNeighbors = board.Grid[row, col].Neighbors;
+                        buttons.ElementAt(rowcol).ButtonState = 2;
+                    }
+                }
             }
         }
     }

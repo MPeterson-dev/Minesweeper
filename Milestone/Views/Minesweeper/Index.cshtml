@@ -43,19 +43,21 @@
             {
                 <div class="line-break"> </div>
             }
-
-                <div class="Button">
-                    <button class="game-button" type="submit" value=@i name="buttonNumber" asp-controller="Minesweeper" asp-action="handleButtonClick">
-                        <img class="button-image" src="~/img/@names[Model.ElementAt(i).ButtonState]"/>
-                        @Model.ElementAt(i).Row
-                        ,
-                         @Model.ElementAt(i).Col
-                        ,
-                         @Model.ElementAt(i).ButtonState
-                    </button>
-
-                </div>
-        }
+            <div class="Button">
+                <button class="game-button" type="submit" value=@i name="buttonNumber" asp-controller="Minesweeper" asp-action="handleButtonClick">
+                    @if (Model.ElementAt(i).ButtonState == 2)
+                    {
+                        <div style="font-family:Bungee">
+                            @Model.ElementAt(i).numOfNeighbors
+                            </div>
+                    }
+                    else
+                    {
+                    <img class="button-image" src="~/img/@names[Model.ElementAt(i).ButtonState]"/>
+                    }
+                </button>
             </div>
+        }
+        </div>
     </form>
 }
