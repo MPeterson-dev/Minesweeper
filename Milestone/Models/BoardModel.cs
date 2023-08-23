@@ -62,7 +62,7 @@
                 {
                     if (Grid[row, col].Live)
                     {
-                        Grid[row, col].ButtonState = 9;
+                       // Grid[row, col].ButtonState = 9;
 
                     }
                     else
@@ -74,7 +74,7 @@
                             if (Grid[row - 1, col].Live)
                             {
                                 Grid[row, col].Neighbors++;
-                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                                
                             }
                         }
 
@@ -84,7 +84,7 @@
                             if (Grid[row - 1, col - 1].Live)
                             {
                                 Grid[row, col].Neighbors++;
-                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                                
                             }
                         }
 
@@ -94,7 +94,7 @@
                             if (Grid[row - 1, col + 1].Live)
                             {
                                 Grid[row, col].Neighbors++;
-                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                                
                             }
                         }
 
@@ -104,7 +104,7 @@
                             if (Grid[row, col - 1].Live)
                             {
                                 Grid[row, col].Neighbors++;
-                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                                
                             }
                         }
 
@@ -114,7 +114,7 @@
                             if (Grid[row, col + 1].Live)
                             {
                                 Grid[row, col].Neighbors++;
-                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                                
                             }
                         }
 
@@ -124,7 +124,7 @@
                             if (Grid[row + 1, col].Live)
                             {
                                 Grid[row, col].Neighbors++;
-                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                                
                             }
                         }
 
@@ -134,7 +134,7 @@
                             if (Grid[row + 1, col - 1].Live)
                             {
                                 Grid[row, col].Neighbors++;
-                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                                
                             }
                         }
 
@@ -144,7 +144,7 @@
                             if (Grid[row + 1, col + 1].Live)
                             {
                                 Grid[row, col].Neighbors++;
-                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                                
                             }
                         }
                     }
@@ -183,8 +183,17 @@
 
         public void FloodFill(int Row, int Col)
         {
-            if (Grid[Row, Col].Neighbors == 0)
+            if (Grid[Row,Col].Live == true)
             {
+                Grid[Row, Col].ButtonState = 9;
+            }
+            else if (Grid[Row, Col].Neighbors != 0)
+            {
+                Grid[Row, Col].ButtonState = Grid[Row, Col].Neighbors;
+            }
+            else if (Grid[Row, Col].Neighbors == 0)
+            {
+                Grid[Row, Col].ButtonState = Grid[Row, Col].Neighbors;
                 // Top
                 if (inArray(Row - 1, Col))
                 {

@@ -9,6 +9,7 @@
             visited = false;
             live = false;
             neighbors = 0;
+            buttonState = 11;
         }
 
  

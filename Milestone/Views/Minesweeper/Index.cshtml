@@ -4,8 +4,8 @@
 
 <style>
     .game-button {
-        width: 75px;
-        height: 75px;
+        width: 65px;
+        height: 65px;
         border: solid 2px;
         border-color: #DCDCDC;
         margin: .25em;
@@ -13,18 +13,13 @@
 
     .button-image {
         width: 65px;
-        height: 65px;
+        height: 60px;
         position: center;
     }
 
     .game-board {
         display: flex;
         flex-wrap: wrap;
-    }
-
-    .game-neighbor {
-        height: 65px;
-        width: 65px;
     }
 
     .line-break {
@@ -41,7 +36,7 @@
 </style>
 
 @{
-    string[] names = { "0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png" };
+    string[] names = { "0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png","10.png","11.png" };
 
     <h5 class="center"> Minesweeper </h5>
     <form asp-controller="Minesweeper" asp-action="ButtonClick">
@@ -58,17 +53,10 @@
                         <div class="line-break"> </div>
                     }
                     <div>
-                        <button class="cell" type="submit" value=@r+@c name="rowcol">
-                            @if (Model.Grid[r, c].ButtonState != 9)
-                            {
-                                <div style="font-family:Bungee" class="game-neighbor center">
-                                    @Model.Grid[r,c].ButtonState
-                                </div>
-                            }
-                            else
-                            {
-                                <img class="button-image" src="~/img/@names[Model.Grid[r,c].ButtonState]" />
-                            }
+                        <button class="cell game-button" type="submit" value=@r+@c name="rowcol">
+
+                            <img class="button-image" src="~/img/@names[Model.Grid[r,c].ButtonState]" id="center" />
+                            
                         </button>
                     </div>
                 }

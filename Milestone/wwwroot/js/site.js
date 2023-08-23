@@ -8,15 +8,15 @@ $(function () {
 
     $(document).bind("contextmenu", function (event) {
         event.preventDefault();
-    })
+    });
 
-    $(".cell").click (function (event) {
+    $(document).on("mousedown", ".cell", function (event) {
         switch (event.which) {
             case 1:
                 event.preventDefault();
                 var btn = $(this).val();
                 console.log("Left clicked");
-                UpdateButton(btn, "/Game/ShowOneButton");
+                UpdateButton(btn, "/minesweeper/ShowOneButton");
                 break;
             case 2:
                 console.log("Middle mouse button clicked.");
@@ -24,29 +24,28 @@ $(function () {
             case 3:
                 event.preventDefault();
                 var btn = $(this).val();
-                console.log("Left clicked");
-                UpdateButton(btn, "/Game/RightClick");
+                console.log("Right clicked");
+                UpdateButton(btn, "/Minesweeper/RightClick");
                 break;
             default:
-                break;
+                alert('nothing');
 
 
         }
-    })
-
-
-    function UpdateButton(rowcol, url) {
-        $.ajax({
-            type: 'json',
-            method: 'POST',
-            url: url,
-            data: {
-                "rowcol": rowcol
-            },
-            success: function (data) {
-                console.log(data);
-                $("#" + rowcol).html(data);
-            }
-        })
-    }
+    });
 });
+
+function UpdateButton(rowcol, url) {
+    $.ajax({
+        type: "json",
+        method: 'POST',
+        url: url,
+        data: {
+            "rowcol": rowcol
+        },
+        success: function (data) {
+            console.log(data);
+            $("#" + rowcol).html(data);
+        }
+    });
+};
