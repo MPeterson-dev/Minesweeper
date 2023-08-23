@@ -8,6 +8,7 @@ $(function () {
 
     $(document).bind("contextmenu", function (event) {
         event.preventDefault();
+        Console.log("Preveent context menu from showing");
     });
 
     $(document).on("mousedown", ".cell", function (event) {
@@ -45,7 +46,7 @@ function UpdateButton(rowcol, url) {
         },
         success: function (data) {
             console.log(data);
-            $("#" + rowcol).html(data);
+            $(".game-board").html(data);
         }
     });
 };

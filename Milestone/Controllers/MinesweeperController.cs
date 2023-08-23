@@ -25,7 +25,7 @@ namespace Milestone.Controllers
             int row = Convert.ToInt32(separate[0]);
             int col = Convert.ToInt32(separate[1]);
 
-            if (board.Grid[row,col].ButtonState != 10)
+            if (board.Grid[row, col].ButtonState != 10)
             {
                 board.FloodFill(row, col);
 
@@ -43,17 +43,23 @@ namespace Milestone.Controllers
 
         public IActionResult ShowOneButton(string rowcol)
         {
+
             string[] separate = rowcol.Split('+');
             int row = Convert.ToInt32(separate[0]);
             int col = Convert.ToInt32(separate[1]);
 
             if (board.Grid[row, col].ButtonState != 10)
             {
-                board.FloodFill(row, col);
+               board.FloodFill(row, col);
             }
+            return PartialView( board);
 
 
-            return PartialView(board.Grid[row, col]);
+        }
+
+        public IActionResult RightClick(string rowcol)
+        {
+            return View("Index");
         }
 
 
@@ -65,14 +71,6 @@ namespace Milestone.Controllers
             GameService.printBoards(newBoard);
             return newBoard;
         }
-
-        public IActionResult RightClick(string rowcol)
-        {
-            return View("Index");
-        }
-
-
-
 
 
         //private List<ButtonModel> resetGame()
