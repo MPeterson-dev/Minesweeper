@@ -1,63 +1,78 @@
-﻿@model IEnumerable<Milestone.Models.ButtonModel>
+﻿﻿@using Milestone.Models
+@model Milestone.Models.BoardModel
 
 
-    <style>
-        .game-button{
-            width: 75px;
-            height: 75px;
-            border: solid 2px;
-            border-color:#DCDCDC;
-            margin:.25em;
-        }
-
-        .button-image {
-            width: 65px;
-            position: center;
+<style>
+    .game-button {
+        width: 75px;
+        height: 75px;
+        border: solid 2px;
+        border-color: #DCDCDC;
+        margin: .25em;
     }
-        .button-zone{
-            display:flex;
-            flex-wrap:wrap;
-        }
-        .line-break{
-            flex-basis:100%;
-            height:0;
-        }
-        .center{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
+
+    .button-image {
+        width: 65px;
+        height: 65px;
+        position: center;
+    }
+
+    .game-board {
+        display: flex;
+        flex-wrap: wrap;
+    }
+
+    .game-neighbor {
+        height: 65px;
+        width: 65px;
+    }
+
+    .line-break {
+        flex-basis: 100%;
+        height: 0;
+    }
+
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        vertical-align: middle;
+    }
+</style>
 
 @{
-    string[] names = { "0.png","1.png", "2.png","3.png","4.png","5.png","6.png","7.png","8.png","9.png","10.png","11.png" };
+    string[] names = { "0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png" };
 
     <h5 class="center"> Minesweeper </h5>
-    <form class="center">
+    <form asp-controller="Minesweeper" asp-action="ButtonClick">
 
-        <div class="button-zone center">
-        @for (int i = 0; i < Model.Count(); i++)
-        {
-            
-            if (@i % 10 == 0)
+        <div class="game-board center">
+            @for (int r = 0; r < Model.getSize(); r++)
             {
-                <div class="line-break"> </div>
+
+                @for (int c = 0; c < Model.getSize(); c++)
+                {
+
+                    if (@c % 10 == 0)
+                    {
+                        <div class="line-break"> </div>
+                    }
+                    <div>
+                        <button class="cell" type="submit" value=@r+@c name="rowcol">
+                            @if (Model.Grid[r, c].ButtonState != 9)
+                            {
+                                <div style="font-family:Bungee" class="game-neighbor center">
+                                    @Model.Grid[r,c].ButtonState
+                                </div>
+                            }
+                            else
+                            {
+                                <img class="button-image" src="~/img/@names[Model.Grid[r,c].ButtonState]" />
+                            }
+                        </button>
+                    </div>
+                }
             }
-            <div class="Button">
-                <button class="game-button" type="submit" value=@i name="buttonNumber" asp-controller="Minesweeper" asp-action="handleButtonClick">
-                    @if (Model.ElementAt(i).ButtonState == 2)
-                    {
-                        <div style="font-family:Bungee">
-                            @Model.ElementAt(i).numOfNeighbors
-                            </div>
-                    }
-                    else
-                    {
-                    <img class="button-image" src="~/img/@names[Model.ElementAt(i).ButtonState]"/>
-                    }
-                </button>
-            </div>
-        }
         </div>
     </form>
 }

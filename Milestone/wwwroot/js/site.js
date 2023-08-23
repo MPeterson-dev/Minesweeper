@@ -2,3 +2,51 @@
 // for details on configuring this project to bundle and minify static web assets.
 
 // Write your JavaScript code.
+
+$(function () {
+    console.log("Page is ready");
+
+    $(document).bind("contextmenu", function (event) {
+        event.preventDefault();
+    })
+
+    $(".cell").click (function (event) {
+        switch (event.which) {
+            case 1:
+                event.preventDefault();
+                var btn = $(this).val();
+                console.log("Left clicked");
+                UpdateButton(btn, "/Game/ShowOneButton");
+                break;
+            case 2:
+                console.log("Middle mouse button clicked.");
+                break;
+            case 3:
+                event.preventDefault();
+                var btn = $(this).val();
+                console.log("Left clicked");
+                UpdateButton(btn, "/Game/RightClick");
+                break;
+            default:
+                break;
+
+
+        }
+    })
+
+
+    function UpdateButton(rowcol, url) {
+        $.ajax({
+            type: 'json',
+            method: 'POST',
+            url: url,
+            data: {
+                "rowcol": rowcol
+            },
+            success: function (data) {
+                console.log(data);
+                $("#" + rowcol).html(data);
+            }
+        })
+    }
+});

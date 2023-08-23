@@ -60,80 +60,96 @@
             {
                 for (int col = 0; col < size; col++)
                 {
-                    // Top
-                    if (inArray(row - 1, col))
+                    if (Grid[row, col].Live)
                     {
-                        if (Grid[row - 1, col].Live)
-                        {
-                            Grid[row, col].Neighbors++;
-                        }
-                    }
+                        Grid[row, col].ButtonState = 9;
 
-                    //Top Right
-                    if (inArray(row - 1, col - 1))
-                    {
-                        if (Grid[row - 1, col - 1].Live)
-                        {
-                            Grid[row, col].Neighbors++;
-                        }
                     }
-
-                    // Top Left
-                    if (inArray(row - 1, col + 1))
+                    else
                     {
-                        if (Grid[row - 1, col + 1].Live)
+
+                        // Top
+                        if (inArray(row - 1, col))
                         {
-                            Grid[row, col].Neighbors++;
+                            if (Grid[row - 1, col].Live)
+                            {
+                                Grid[row, col].Neighbors++;
+                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                            }
                         }
-                    }
 
-                    // Right
-                    if (inArray(row, col - 1))
-                    {
-                        if (Grid[row, col - 1].Live)
+                        //Top Right
+                        if (inArray(row - 1, col - 1))
                         {
-                            Grid[row, col].Neighbors++;
+                            if (Grid[row - 1, col - 1].Live)
+                            {
+                                Grid[row, col].Neighbors++;
+                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                            }
                         }
-                    }
 
-                    // Left
-                    if (inArray(row, col + 1))
-                    {
-                        if (Grid[row, col + 1].Live)
+                        // Top Left
+                        if (inArray(row - 1, col + 1))
                         {
-                            Grid[row, col].Neighbors++;
+                            if (Grid[row - 1, col + 1].Live)
+                            {
+                                Grid[row, col].Neighbors++;
+                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                            }
                         }
-                    }
 
-                    // Bottom
-                    if (inArray(row + 1, col))
-                    {
-                        if (Grid[row + 1, col].Live)
+                        // Right
+                        if (inArray(row, col - 1))
                         {
-                            Grid[row, col].Neighbors++;
+                            if (Grid[row, col - 1].Live)
+                            {
+                                Grid[row, col].Neighbors++;
+                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                            }
                         }
-                    }
 
-                    // Bottom left
-                    if (inArray(row + 1, col - 1))
-                    {
-                        if (Grid[row + 1, col - 1].Live)
+                        // Left
+                        if (inArray(row, col + 1))
                         {
-                            Grid[row, col].Neighbors++;
+                            if (Grid[row, col + 1].Live)
+                            {
+                                Grid[row, col].Neighbors++;
+                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                            }
                         }
-                    }
 
-                    // Bottom right
-                    if (inArray(row + 1, col + 1))
-                    {
-                        if (Grid[row + 1, col + 1].Live)
+                        // Bottom
+                        if (inArray(row + 1, col))
                         {
-                            Grid[row, col].Neighbors++;
+                            if (Grid[row + 1, col].Live)
+                            {
+                                Grid[row, col].Neighbors++;
+                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                            }
+                        }
+
+                        // Bottom left
+                        if (inArray(row + 1, col - 1))
+                        {
+                            if (Grid[row + 1, col - 1].Live)
+                            {
+                                Grid[row, col].Neighbors++;
+                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                            }
+                        }
+
+                        // Bottom right
+                        if (inArray(row + 1, col + 1))
+                        {
+                            if (Grid[row + 1, col + 1].Live)
+                            {
+                                Grid[row, col].Neighbors++;
+                                Grid[row, col].ButtonState = Grid[row, col].Neighbors;
+                            }
                         }
                     }
                 }
             }
-
         }
 
         public bool inArray(int row, int col)

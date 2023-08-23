@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "39GTmt3jLfpK/+aAwabFUCuLZQXEE94g394ygChZ3SCVUAwMSDLvaHjBUlA266zyjG9/zIvY+CsegCJAdFq1lg==",
+  "dgSpecHash": "Tz9SiHRUSo6sX2OdCHmtlTkRj0ci8xRZCgD9IkZSq9rfbxepwHrg2HLfKSnDIhFIE8e8X+n3I4e7TNMcVt0Z/Q==",
   "success": true,
-  "projectFilePath": "D:\\Github\\CST-350-Milestone\\Milestone\\Milestone.csproj",
+  "projectFilePath": "D:\\Github\\CST-350-MilestoneCLC\\Milestone\\Milestone.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\APR Services\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\APR Services\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

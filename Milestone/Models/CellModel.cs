@@ -55,6 +55,13 @@
             get { return neighbors; }
             set { neighbors = value; }
         }
+
+        private int buttonState;
+        public int ButtonState
+        {
+            get { return buttonState; }
+            set { buttonState = value; }
+        }
     }
 }
 

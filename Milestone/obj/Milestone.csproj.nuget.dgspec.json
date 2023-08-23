@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\CST-350-Milestone\\Milestone\\Milestone.csproj": {}
+    "D:\\Github\\CST-350-MilestoneCLC\\Milestone\\Milestone.csproj": {}
   },
   "projects": {
-    "D:\\Github\\CST-350-Milestone\\Milestone\\Milestone.csproj": {
+    "D:\\Github\\CST-350-MilestoneCLC\\Milestone\\Milestone.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\CST-350-Milestone\\Milestone\\Milestone.csproj",
+        "projectUniqueName": "D:\\Github\\CST-350-MilestoneCLC\\Milestone\\Milestone.csproj",
         "projectName": "Milestone",
-        "projectPath": "D:\\Github\\CST-350-Milestone\\Milestone\\Milestone.csproj",
+        "projectPath": "D:\\Github\\CST-350-MilestoneCLC\\Milestone\\Milestone.csproj",
         "packagesPath": "C:\\Users\\APR Services\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\CST-350-Milestone\\Milestone\\obj\\",
+        "outputPath": "D:\\Github\\CST-350-MilestoneCLC\\Milestone\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
