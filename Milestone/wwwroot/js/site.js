@@ -6,11 +6,13 @@
 $(function () {
     console.log("Page is ready");
 
+    //prevents right click context menu from showing
     $(document).bind("contextmenu", function (event) {
         event.preventDefault();
-        Console.log("Preveent context menu from showing");
+        Console.log("Prevented context menu from showing");
     });
 
+    //switch case for left or right mouse clicks
     $(document).on("mousedown", ".cell", function (event) {
         switch (event.which) {
             case 1:
@@ -26,12 +28,10 @@ $(function () {
                 event.preventDefault();
                 var btn = $(this).val();
                 console.log("Right clicked");
-                UpdateButton(btn, "/Minesweeper/RightClick");
+                UpdateButton(btn, "/Minesweeper/RightClickShowOneButton");
                 break;
             default:
                 alert('nothing');
-
-
         }
     });
 });
