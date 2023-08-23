@@ -4,6 +4,7 @@ using System;
 using System.Diagnostics;
 using System.Linq;
 using Milestone.Services;
+using Microsoft.CodeAnalysis.CSharp.Syntax;
 
 namespace Milestone.Controllers
 {
@@ -50,18 +51,39 @@ namespace Milestone.Controllers
 
             if (board.Grid[row, col].ButtonState != 10)
             {
-               board.FloodFill(row, col);
-            }
-            return PartialView( board);
+                board.FloodFill(row, col);
+            }            
 
-
+            return PartialView(board);
         }
 
-        public IActionResult RightClick(string rowcol)
+        //Called from JS, sets ButtonState to 10/flag, if 10 already call calculateLiveNeighbors()
+        public IActionResult RightClickShowOneButton(string rowcol)
         {
-            return View("Index");
-        }
+            //get grid row and col
+            string[] separate = rowcol.Split('+');
+            int row = Convert.ToInt32(separate[0]);
+            int col = Convert.ToInt32(separate[1]);
 
+            //if flag already, remove flag
+            if (board.Grid[row, col].ButtonState == 10)
+            {
+                //11 is blank cell img
+                board.Grid[row, col].ButtonState = 11;
+                return PartialView(board);
+            }
+            //if visited already, dont flag
+            if(board.Grid[row, col].Visited == true)
+            {
+                return PartialView(board);
+            }
+            else
+            {   //10 = flag img
+                board.Grid[row, col].ButtonState = 10;
+            }
+                        
+            return PartialView(board);
+        }
 
         public BoardModel newGame()
         {

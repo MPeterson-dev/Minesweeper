@@ -186,10 +186,12 @@
             if (Grid[Row,Col].Live == true)
             {
                 Grid[Row, Col].ButtonState = 9;
+                Grid[Row, Col].Visited = true;
             }
             else if (Grid[Row, Col].Neighbors != 0)
             {
                 Grid[Row, Col].ButtonState = Grid[Row, Col].Neighbors;
+                Grid[Row, Col].Visited = true;
             }
             else if (Grid[Row, Col].Neighbors == 0)
             {
