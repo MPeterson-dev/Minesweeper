@@ -5,6 +5,10 @@
       "PackagePath": "staticwebassets\\Milestone.bundle.scp.css"
     },
     {
+      "Id": "C:\\Users\\matth\\source\\CST350 Milestone Project\\Milestone\\wwwroot\\Music\\GameMusic.mp3",
+      "PackagePath": "staticwebassets\\Music\\GameMusic.mp3"
+    },
+    {
       "Id": "C:\\Users\\matth\\source\\CST350 Milestone Project\\Milestone\\wwwroot\\css\\paperkit.css",
       "PackagePath": "staticwebassets\\css\\paperkit.css"
     },

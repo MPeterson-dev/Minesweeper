@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "Fd5xASeKQEypUqkVzaWKhfNydk6voft/bZ5jIjvc/s8=",
+  "Hash": "fA2nZ3xLdVWUJuY52axy+V2OfIiv6TKLsAkjFhFrPVw=",
   "Source": "Milestone",
   "BasePath": "_content/Milestone",
   "Mode": "Default",
@@ -1307,6 +1307,23 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\lib\\jquery-validation-unobtrusive\\LICENSE.txt"
+    },
+    {
+      "Identity": "C:\\Users\\matth\\source\\CST350 Milestone Project\\Milestone\\wwwroot\\Music\\GameMusic.mp3",
+      "SourceId": "Milestone",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\matth\\source\\CST350 Milestone Project\\Milestone\\wwwroot\\",
+      "BasePath": "_content/Milestone",
+      "RelativePath": "Music/GameMusic.mp3",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\Music\\GameMusic.mp3"
     }
   ]
 }

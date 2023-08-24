@@ -34,6 +34,7 @@ $(function () {
                 alert('nothing');
         }
     });
+
 });
 
 function UpdateButton(rowcol, url) {
