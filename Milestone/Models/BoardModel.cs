@@ -310,12 +310,23 @@
                 }
             }
         }
+        private void resetButtonState()
+        {
+            for (int row = 0; row < size; row++)
+            {
+                for (int col = 0; col < size; col++)
+                {
+                    Grid[row, col].ButtonState = 11;
+                }
+            }
+        }
 
         public void resetBoard()
         {
             resetLive();
             resetNeighbors();
             resetVisited();
+            resetButtonState();
         }
     }
 }

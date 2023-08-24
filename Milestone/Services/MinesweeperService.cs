@@ -3,8 +3,67 @@ using System.Diagnostics;
 
 namespace Milestone.Services
 {
-    public class GameService
+    public class MinesweeperService
     {
+        public Boolean gameWon(BoardModel board)
+        {
+            if (board.winner())
+            {
+                return true;
+            }
+            else {  
+                return false; 
+            }
+        }
+
+        public Boolean gameLost(BoardModel board, int row, int col)
+        {
+            if (board.Grid[row, col].Live == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean isFlagged(BoardModel board, int row, int col)
+        {
+            if(board.Grid[row, col].ButtonState == 10)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean isVisited(BoardModel board, int row, int col)
+        {
+            if (board.Grid[row, col].Visited == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
+        public Boolean isLive(BoardModel board, int row, int col)
+        {
+            if (board.Grid[row, col].Live == true)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
+        }
+
         public static void printBoards(BoardModel obj)
         {
             int boardSize = obj.getSize();

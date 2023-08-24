@@ -10,8 +10,8 @@ namespace Milestone.Controllers
 {
     public class MinesweeperController : Controller
     {
+        MinesweeperService service = new MinesweeperService();
         public static BoardModel board { get; set; }
-        static List<ButtonModel> buttons = new List<ButtonModel>();
 
         public IActionResult Index()
         {
@@ -22,42 +22,50 @@ namespace Milestone.Controllers
 
         public IActionResult ButtonClick(string rowcol)
         {
-            string[] separate = rowcol.Split('+');
-            int row = Convert.ToInt32(separate[0]);
-            int col = Convert.ToInt32(separate[1]);
-
-            if (board.Grid[row, col].ButtonState != 10)
+            if (rowcol != null)
             {
-                board.FloodFill(row, col);
 
-                //if(service.lostGame(board, row, col))
-                //{
-                //    return View("GameOver");
-                //}
-                //if(Service.gameWon(board, row, col))
-                //{
-                //    return View("GameWon");
-                //}
+                string[] separate = rowcol.Split('+');
+                int row = Convert.ToInt32(separate[0]);
+                int col = Convert.ToInt32(separate[1]);
+
+                if (!service.isFlagged(board, row, col))
+                {
+                    board.FloodFill(row, col);
+                }
+            }
+            else
+            {
+                Index();
             }
             return View("Index", board);
         }
 
         public IActionResult ShowOneButton(string rowcol)
         {
-
-            string[] separate = rowcol.Split('+');
-            int row = Convert.ToInt32(separate[0]);
-            int col = Convert.ToInt32(separate[1]);
-
-            if (board.Grid[row, col].ButtonState != 10 || board.Grid[row, col].Live == false)
+            if (rowcol != null)
             {
-                board.FloodFill(row, col);
-            }
-            if (board.Grid[row, col].Live == true)
-            {
-                return View("GameLost");
-            }
+                string[] separate = rowcol.Split('+');
+                int row = Convert.ToInt32(separate[0]);
+                int col = Convert.ToInt32(separate[1]);
 
+                if (!service.isFlagged(board, row, col) || !service.isLive(board, row, col))
+                {
+                    board.FloodFill(row, col);
+                }
+                if (service.gameLost(board, row, col))
+                {
+                    return PartialView("GameLost");
+                }
+                if (service.gameWon(board))
+                {
+                    return PartialView("GameWon");
+                }
+            }
+            else
+            {
+                Index();
+            }
             return PartialView(board);
         }
 
@@ -70,14 +78,14 @@ namespace Milestone.Controllers
             int col = Convert.ToInt32(separate[1]);
 
             //if flag already, remove flag
-            if (board.Grid[row, col].ButtonState == 10)
+            if (service.isFlagged(board,row,col))
             {
                 //11 is blank cell img
                 board.Grid[row, col].ButtonState = 11;
                 return PartialView(board);
             }
             //if visited already, dont flag
-            if(board.Grid[row, col].Visited == true)
+            if(service.isVisited(board,row,col))
             {
                 return PartialView(board);
             }
@@ -94,65 +102,8 @@ namespace Milestone.Controllers
             BoardModel newBoard = new BoardModel(10);
             newBoard.setupLiveNeighbors(0.4);
             newBoard.calculateLiveNeighbors();
-            GameService.printBoards(newBoard);
+            MinesweeperService.printBoards(newBoard);
             return newBoard;
         }
-
-
-        //private List<ButtonModel> resetGame()
-        //{
-        //    buttons = new List<ButtonModel>();
-
-        //    board.resetBoard();
-        //    board.setupLiveNeighbors(0.4);
-        //    board.calculateLiveNeighbors();
-        //    printBoards(board);
-
-        //    for (int row = 0; row < board.getSize(); row++)
-        //    {
-        //        for (int col = 0; col < board.getSize(); col++)
-        //        {
-        //            buttons.Add(new ButtonModel(row, col, 0));
-        //        }
-        //    }
-
-        //    return buttons;
-        //}
-
-        //private void setButtonState()
-        //{
-        //    for (int row = 0; row < board.getSize(); row++)
-        //    {
-        //        for (int col = 0; col < board.getSize(); col++)
-        //        {
-        //            if (board.Grid[row,col].Visited == true )
-        //            {
-        //                int rowcol = Convert.ToInt32(row.ToString() + col.ToString());
-        //                buttons.ElementAt(rowcol).numOfNeighbors = board.Grid[row, col].Neighbors;
-        //                buttons.ElementAt(rowcol).ButtonState = 2;
-        //            }
-        //        }
-        //    }
-        //}
-
-        //private void revealButtons()
-        //{
-        //    for (int row = 0; row < board.getSize(); row++)
-        //    {
-        //        for (int col = 0; col < board.getSize(); col++)
-        //        {
-        //            int rowcol = Convert.ToInt32(row.ToString() + col.ToString());
-        //            if (board.Grid[row,col].Live == true)
-        //            {
-        //                buttons.ElementAt(rowcol).ButtonState = 1;
-        //            }
-        //            else
-        //            {
-        //                buttons.ElementAt(rowcol).numOfNeighbors = board.Grid[row, col].Neighbors;
-        //                buttons.ElementAt(rowcol).ButtonState = 2;
-        //            }
-        //        }
-        //    }
-        //}
     }
 }

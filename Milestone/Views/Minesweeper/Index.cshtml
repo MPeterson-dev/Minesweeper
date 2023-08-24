@@ -9,7 +9,7 @@
     }
 
     .cell-img {
-        width: 64px;
+        width: 60px;
     }
 
     .cell {
@@ -27,7 +27,7 @@
         height: 0;
     }
 
-     .center {
+    .center {
         display: flex;
         align-items: center;
         justify-content: center;
@@ -36,38 +36,38 @@
 </style>
 <head>
     <script type="text/javascript">
-        window.onload = function(){
+        window.onload = function() {
             document.getElementById("gamemusic").play();
-        }    
+        }
     </script>
 </head>
 
 @{
-    string[] names = { "0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png","10.png","11.png" };
+    string[] names = { "0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png" };
 
     <h5 class="center"> Minesweeper </h5>
     <form asp-controller="Minesweeper" asp-action="ButtonClick">
         <audio id="gamemusic" src="~/Music/GameMusic.mp3" type="audio/mp3"></audio>
-            <div class="game-board center">
-                @for (int r = 0; r < Model.getSize(); r++)
+        <div class="game-board center">
+            @for (int r = 0; r < Model.getSize(); r++)
             {
 
-                    @for (int c = 0; c < Model.getSize(); c++)
+                @for (int c = 0; c < Model.getSize(); c++)
                 {
 
                     if (@c % 10 == 0)
                     {
-                            <div class="line-break"> </div>
+                        <div class="line-break"> </div>
                     }
-                        <div>
-                            <button class="cell game-button" type="submit" value=@r+@c name="rowcol">
 
-                                <img class="button-image" src="~/img/@names[Model.Grid[r,c].ButtonState]" id="center" />
-                                
-                            </button>
-                        </div>
+                    <button class="cell game-button" type="submit" value=@r+@c name="rowcol">
+
+                        <img class="cell-image" src="~/img/@names[Model.Grid[r,c].ButtonState]" id="center" />
+
+                    </button>
+
                 }
             }
-            </div>
+        </div>
     </form>
 }

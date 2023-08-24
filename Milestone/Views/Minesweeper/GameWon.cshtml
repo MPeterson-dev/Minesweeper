@@ -4,10 +4,16 @@
 @{
 }
 <style>
-    .center{
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
+    .center {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
 </style>
-<h2 class="center"> Congrats you won!</h2>
+<h2 class="center" style="width:100%"> Congrats you won!</h2>
+
+<div class="form-group center">
+    <a class="nav-link" asp-area="" asp-controller="Minesweeper" asp-action="Index">
+        <input type="submit" value="Restart Game" class="btn btn-primary" />
+    </a>
+</div>
