@@ -49,10 +49,14 @@ namespace Milestone.Controllers
             int row = Convert.ToInt32(separate[0]);
             int col = Convert.ToInt32(separate[1]);
 
-            if (board.Grid[row, col].ButtonState != 10)
+            if (board.Grid[row, col].ButtonState != 10 || board.Grid[row, col].Live == false)
             {
                 board.FloodFill(row, col);
-            }            
+            }
+            if (board.Grid[row, col].Live == true)
+            {
+                return View("GameLost");
+            }
 
             return PartialView(board);
         }
