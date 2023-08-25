@@ -51,3 +51,30 @@ function UpdateButton(rowcol, url) {
         }
     });
 };
+
+
+var counter = 0;
+var interval = null;
+function StartTimer() {
+    if (interval == null) {
+        interval = setInterval(function () {
+            counter += 1;
+            document.getElementById("count").innerHTML = counter;
+        }, 1000);
+    }
+}
+
+function StopTimer() {
+    clearInterval(interval);
+    interval = null;
+    document.getElementById("count").innerHTML = counter;
+}
+
+window.onload = function (e) {
+    StartTimer();
+    document.getElementById("gamemusic").play();
+}
+
+window.onunload = function (e) {
+    StopTimer();
+}

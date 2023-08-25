@@ -41,6 +41,7 @@ namespace Milestone.Controllers
             return View("Index", board);
         }
 
+
         public IActionResult ShowOneButton(string rowcol)
         {
             if (rowcol != null)
@@ -55,6 +56,8 @@ namespace Milestone.Controllers
                 }
                 if (service.gameLost(board, row, col))
                 {
+                    Debug.WriteLine(System.IO.Directory.GetCurrentDirectory());
+
                     return PartialView("GameLost");
                 }
                 if (service.gameWon(board))

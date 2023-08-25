@@ -34,21 +34,19 @@
         vertical-align: middle;
     }
 </style>
-<head>
-    <script type="text/javascript">
-        window.onload = function() {
-            document.getElementById("gamemusic").play();
-        }
-    </script>
-</head>
+
 
 @{
     string[] names = { "0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png" };
 
     <h5 class="center"> Minesweeper </h5>
+    <div class="timer center" style="font-family:Bungee">
+        <span id="count">0</span>
+    </div>
     <form asp-controller="Minesweeper" asp-action="ButtonClick">
         <audio id="gamemusic" src="~/Music/GameMusic.mp3" type="audio/mp3"></audio>
         <div class="game-board center">
+
             @for (int r = 0; r < Model.getSize(); r++)
             {
 
