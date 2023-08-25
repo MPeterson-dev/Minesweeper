@@ -56,8 +56,6 @@ namespace Milestone.Controllers
                 }
                 if (service.gameLost(board, row, col))
                 {
-                    Debug.WriteLine(System.IO.Directory.GetCurrentDirectory());
-
                     return PartialView("GameLost");
                 }
                 if (service.gameWon(board))
