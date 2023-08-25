@@ -52,7 +52,6 @@ function UpdateButton(rowcol, url) {
     });
 };
 
-
 var counter = 0;
 var interval = null;
 function StartTimer() {
@@ -71,7 +70,6 @@ function StopTimer() {
 }
 
 window.onload = function (e) {
-    StartTimer();
     document.getElementById("gamemusic").play();
 }
 
