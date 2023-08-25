@@ -9,7 +9,7 @@ $(function () {
     //prevents right click context menu from showing
     $(document).bind("contextmenu", function (event) {
         event.preventDefault();
-        Console.log("Prevented context menu from showing");
+        console.log("Prevented context menu from showing");
     });
 
     //switch case for left or right mouse clicks
