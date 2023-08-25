@@ -19,17 +19,6 @@ namespace Milestone.Controllers
 
             return View(board);
         }
-
-        /// <summary>
-        /// The ButtonClick function takes a string parameter representing a row and column, splits it into separate
-        /// integers, and performs a flood fill operation on a board object if the cell is not flagged.
-        /// </summary>
-        /// <param name="rowcol">The parameter "rowcol" is a string that represents the row and column of a button click. It
-        /// is in the format "row+col", where "row" and "col" are integers representing the row and column numbers
-        /// respectively.</param>
-        /// <returns>
-        /// The method is returning a View with the name "Index" and passing the board object as the model.
-        /// </returns>
         public IActionResult ButtonClick(string rowcol)
         {
             if (rowcol != null)
