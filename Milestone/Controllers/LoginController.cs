@@ -13,9 +13,9 @@ namespace Milestone.Controllers
 
         public IActionResult ProcessLogin(UserModel user)
         {
-            SecurityService securityService = new SecurityService();
+            UserDAO securityDAO = new UserDAO();
 
-            if (securityService.IsFindUserByNameAndPasswordValid(user))
+            if (securityDAO.FindUserByNameAndPasswordValid(user))
             {
                 return View("LoginSuccess", user);
             }

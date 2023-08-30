@@ -4,17 +4,17 @@
 
 <style>
     .game-button {
-        width: 70px;
-        height: 70px;
+        width: 65px;
+        height: 65px;
     }
 
     .cell-img {
-        width: 60px;
+        width: 55px;
     }
 
     .cell {
-        width: 70px;
-        height: 70px;
+        width: 65px;
+        height: 65px;
     }
 
     .game-board {
@@ -41,12 +41,19 @@
 
     <h5 class="center"> Minesweeper </h5>
     <div class="center" style="font-family:Bungee">
-        <p>Current Time: @DateTime.Now</p>
+        <p>Time: @DateTime.Now</p>
+    </div>
+    <div class="center" style="display:flex;margin-bottom: 6px">
+        <a class="nav-link" style="margin-right:7.2em" asp-area="" asp-controller="Minesweeper" asp-action="Index">
+            <input type="submit" value="Save Game" class="btn btn-primary" />
+        </a>
+        <a class="nav-link" style="margin-left:7.2em" asp-area="" asp-controller="Minesweeper" asp-action="Index">
+            <input type="submit" value="Restore Game" class="btn btn-primary" />
+        </a>
     </div>
     <form asp-controller="Minesweeper" asp-action="ButtonClick">
         <audio id="gamemusic" src="~/Music/GameMusic.mp3" type="audio/mp3"></audio>
         <div class="game-board center">
-
             @for (int r = 0; r < Model.getSize(); r++)
             {
 

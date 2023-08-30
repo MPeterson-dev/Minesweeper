@@ -4,11 +4,11 @@ using System.Diagnostics;
 
 namespace Milestone.Services
 {
-    public class SecuirtyDAO
+    public class UserDAO : IUserDataService
     {
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=cst350;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
-        public bool FindUserByNameAndPassword(UserModel user)
+        public bool FindUserByNameAndPasswordValid(UserModel user)
         {
             bool success = false;
 
@@ -36,7 +36,7 @@ namespace Milestone.Services
             }
         }
 
-        public bool RegisterUser(UserModel user)
+        public bool RegisterUserValid(UserModel user)
         {
             bool success = false;
 

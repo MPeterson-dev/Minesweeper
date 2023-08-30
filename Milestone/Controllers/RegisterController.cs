@@ -13,9 +13,9 @@ namespace Milestone.Controllers
 
         public IActionResult ProcessRegister(UserModel user)
         {
-            SecurityService securityService = new SecurityService();
+            UserDAO securityDAO = new UserDAO();
 
-            if (securityService.IsRegisterUserValid(user))
+            if (securityDAO.RegisterUserValid(user))
             {
                 return View("RegisterSuccess", user);
             }
