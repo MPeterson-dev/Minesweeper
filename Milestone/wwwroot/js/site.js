@@ -12,6 +12,11 @@ $(function () {
         console.log("Prevented context menu from showing");
     });
 
+    $(document).on("click", ".save-game-button", function () {
+        console.log("You click the save game button");
+    });
+
+
     //switch case for left or right mouse clicks
     $(document).on("mousedown", ".cell", function (event) {
         switch (event.which) {

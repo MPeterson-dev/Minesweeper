@@ -1,13 +1,6 @@
 ﻿﻿@using Milestone.Models
 @model Milestone.Models.BoardModel
 
-<div class="container d-flex flex-wrap">
-    @foreach(var item in Model)
-    {
-        <partial name="_saveGameModalCard" model="item"/>
-    }
-</div>
-
 <style>
     .game-button {
         width: 65px;
@@ -50,14 +43,48 @@
         <p>Time: @DateTime.Now</p>
     </div>
     <div class="center" style="display:flex;margin-bottom: 6px">
-    <!-- Save Button trigger modal -->
-        <a class="nav-link" style="margin-right:7.2em" asp-area="" asp-controller="Minesweeper" asp-action="SaveGame">
+        <!-- Save Button trigger modal -->
+        <a class="nav-link save-game-button" style="margin-right:7.2em" asp-area="" asp-controller="Minesweeper" asp-action="SaveGame">
             <input type="submit" value="Save Game" class="btn btn-primary" data-bs-target="#savegameForm" />
         </a>
         <a class="nav-link" style="margin-left:7.2em" asp-area="" asp-controller="Minesweeper" asp-action="Index">
             <input type="submit" value="Restore Game" class="btn btn-primary" />
         </a>
     </div>
+
+
+    <div class="modal fade" id="savegameForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="UserId" class="control-label"></label>
+                        <input id="modal-input-userid" for="UserId" class="form-control" />
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button id="save-button" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
     <form asp-controller="Minesweeper" asp-action="ButtonClick">
         <audio id="gamemusic" src="~/Music/GameMusic.mp3" type="audio/mp3"></audio>
         <div class="game-board center">
