@@ -1,6 +1,12 @@
 ﻿﻿@using Milestone.Models
 @model Milestone.Models.BoardModel
 
+<div class="container d-flex flex-wrap">
+    @foreach(var item in Model)
+    {
+        <partial name="_saveGameModalCard" model="item"/>
+    }
+</div>
 
 <style>
     .game-button {
@@ -44,8 +50,9 @@
         <p>Time: @DateTime.Now</p>
     </div>
     <div class="center" style="display:flex;margin-bottom: 6px">
-        <a class="nav-link" style="margin-right:7.2em" asp-area="" asp-controller="Minesweeper" asp-action="Index">
-            <input type="submit" value="Save Game" class="btn btn-primary" />
+    <!-- Save Button trigger modal -->
+        <a class="nav-link" style="margin-right:7.2em" asp-area="" asp-controller="Minesweeper" asp-action="SaveGame">
+            <input type="submit" value="Save Game" class="btn btn-primary" data-bs-target="#savegameForm" />
         </a>
         <a class="nav-link" style="margin-left:7.2em" asp-area="" asp-controller="Minesweeper" asp-action="Index">
             <input type="submit" value="Restore Game" class="btn btn-primary" />
@@ -76,3 +83,43 @@
         </div>
     </form>
 }
+
+<!-- Modal -->
+<div class="modal fade" id="saveGameForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="Id" class="control-label"></label>
+                    <input id="modal-input-id" for="Id" class="form-control" />
+
+                </div>
+                <div class="form-group">
+                    <label for="Name" class="control-label"></label>
+                    <input id="modal-input-name" for="Name" class="form-control" />
+
+                </div>
+                <div class="form-group">
+                    <label for="Price" class="control-label"></label>
+                    <input id="modal-input-price" for="Price" class="form-control" />
+
+                </div>
+                <div class="form-group">
+                    <label for="Description" class="control-label"></label>
+                    <input id="modal-input-description" for="Description" class="form-control" />
+
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button id="save-button" type="button" class="btn btn-primary btn-secondary" data-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>

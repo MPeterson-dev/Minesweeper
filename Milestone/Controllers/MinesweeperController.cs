@@ -40,7 +40,6 @@ namespace Milestone.Controllers
             return View("Index", board);
         }
 
-
         public IActionResult ShowOneButton(string rowcol)
         {
             if (rowcol != null)
@@ -97,6 +96,10 @@ namespace Milestone.Controllers
             return PartialView(board);
         }
 
+        public IActionResult SaveGame()
+        {
+            return PartialView("_saveGameModalCard");
+        }
         public BoardModel newGame()
         {
             BoardModel newBoard = new BoardModel(10);
