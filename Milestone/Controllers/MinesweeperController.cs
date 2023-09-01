@@ -13,6 +13,8 @@ namespace Milestone.Controllers
         MinesweeperService service = new MinesweeperService();
         public static BoardModel board { get; set; }
 
+        SavedGameDAO savedGameRepository = new SavedGameDAO();
+
         public IActionResult Index()
         {
             board = newGame();
@@ -96,9 +98,17 @@ namespace Milestone.Controllers
             return PartialView(board);
         }
 
-        public IActionResult SaveGame()
+        //Called from JS, inserts saved game into repository
+        public IActionResult SaveGame(SavedGameModel aSavedGame)
         {
-            return PartialView("_saveGameModalCard");
+            savedGameRepository.Insert(aSavedGame);
+            return View("Index");
+        }
+
+        public IActionResult RetrieveSavedGameModelProperties()
+        {
+            //TODO: Retrieve properties from gameboard to pass into partial view using JS/Ajax. Partial view then passes to SaveGame using JS/Ajax.
+            return View("Index");
         }
         public BoardModel newGame()
         {
@@ -107,6 +117,11 @@ namespace Milestone.Controllers
             newBoard.calculateLiveNeighbors();
             MinesweeperService.printBoards(newBoard);
             return newBoard;
+        }
+
+        public IActionResult RetrieveGameJSON(int id)
+        {
+            return Json(savedGameRepository.GetSavedGameByGameId(id));
         }
     }
 }

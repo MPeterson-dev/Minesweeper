@@ -34,7 +34,6 @@
     }
 </style>
 
-
 @{
     string[] names = { "0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png" };
 
@@ -44,11 +43,6 @@
     </div>
     <div class="center" style="display:flex;margin-bottom: 6px;font-family:Bungee">
         <!-- Save Button trigger modal -->
-
-       <!-- <button type="submit" value="Save Game" datat-bs-toggle="modal" data-bs-target="#savegameForm">
-            Save Game
-        </button>-->
-
         <button type="button" style="margin-right:7.2em" class="btn btn-primary save-game-button" data-bs-toggle="modal" data-bs-target="#savegameForm">
             Save Game
         </button>
@@ -58,24 +52,47 @@
         </a>
     </div>
 
-
     <div class="modal fade" id="savegameForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog" role="document">
+        <div class="modal-dialog">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Save Game</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" hidden="hidden">                        
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
                     <div class="form-group">
-                        <label for="UserId" class="control-label"></label>
-                        <input id="modal-input-userid" for="UserId" class="form-control" />
+                        <label for="UserId" class="control-label">User Id:</label>
+                        <input id="modal-input-userid" for="UserId" class="form-control" type="text" placeholder="1"/>
+                    </div>
+                    <div class="form-group">
+                        <label for="GameId" class="control-label">Game Id:</label>
+                        <input id="modal-input-gameId" for="GameId" class="form-control" type="text" placeholder="1" />
+                    </div>
+                    <div class="form-group">
+                        <label for="GameName" class="control-label">Game name:</label>
+                        <input id="modal-input-gameName" for="GameName" class="form-control" type="text" placeholder="test" />
+                    </div>
+                    <div class="form-group">
+                        <label for="LiveSites" class="control-label">Live Sites:</label>
+                        <input id="modal-input-liveSites" for="LiveSites" class="form-control" type="text" placeholder="test" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Time" class="control-label">Time:</label>
+                        <input id="modal-input-time" for="Time" class="form-control" type="text" placeholder="test" />
+                    </div>
+                    <div class="form-group">
+                        <label for="Date" class="control-label">Date:</label>
+                        <input id="modal-input-date" for="Date" class="form-control" type="text" placeholder="test" />
+                    </div>
+                    <div class="form-group">
+                        <label for="ButtonStates" class="control-label">Button States:</label>
+                        <input id="modal-input-buttonStates" for="ButtonStates" class="form-control" type="text" placeholder="test" />
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-secondary" id="cancel-button" data-dismiss="modal">Cancel</button>
                     <button id="save-button" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
                 </div>
             </div>
@@ -108,43 +125,3 @@
         </div>
     </form>
 }
-
-<!-- Modal -->
-<div class="modal fade" id="saveGameForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div class="form-group">
-                    <label for="Id" class="control-label"></label>
-                    <input id="modal-input-id" for="Id" class="form-control" />
-
-                </div>
-                <div class="form-group">
-                    <label for="Name" class="control-label"></label>
-                    <input id="modal-input-name" for="Name" class="form-control" />
-
-                </div>
-                <div class="form-group">
-                    <label for="Price" class="control-label"></label>
-                    <input id="modal-input-price" for="Price" class="form-control" />
-
-                </div>
-                <div class="form-group">
-                    <label for="Description" class="control-label"></label>
-                    <input id="modal-input-description" for="Description" class="form-control" />
-
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button id="save-button" type="button" class="btn btn-primary btn-secondary" data-dismiss="modal">Save changes</button>
-            </div>
-        </div>
-    </div>
-</div>

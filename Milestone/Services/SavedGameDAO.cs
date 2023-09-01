@@ -89,5 +89,34 @@ namespace Milestone.Services
                 };
             }
         }
+
+        public void Insert(SavedGameModel aSavedGame)
+        {
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                string insertSQLStatement = "INSERT * INTO dbo.savedgames SET UserId = @userId, GameId = @gameId, GameName = @gameName," +
+                    "LiveSites = @liveSites, Time = @time, Date = @date, ButtonStates = @buttonStates";
+
+
+                SqlCommand command = new SqlCommand(@insertSQLStatement, connection);
+                command.Parameters.AddWithValue("@userId", aSavedGame.UserId);
+                command.Parameters.AddWithValue("@gameId", aSavedGame.GameId);
+                command.Parameters.AddWithValue("@gameName", aSavedGame.GameName);
+                command.Parameters.AddWithValue("@liveSites", aSavedGame.LiveSites);
+                command.Parameters.AddWithValue("@time", aSavedGame.Time);
+                command.Parameters.AddWithValue("@date", aSavedGame.Date);
+                command.Parameters.AddWithValue("@buttonStates", aSavedGame.ButtonStates);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                };
+            }
+        }
     }
 }

@@ -12,10 +12,62 @@ $(function () {
         console.log("Prevented context menu from showing");
     });
 
+    //initiates partial view
     $(document).on("click", ".save-game-button", function () {
         console.log("You click the save game button");
+        var SaveGame = {
+     /*       "UserId": $("#modal-input-userId").val(),
+            "GameId": $("#modal-input-gameId").val(),
+            "GameName": $("#modal-input-gameName").val(),
+            "LiveSites": $("#modal-input-liveSites").val(),
+            "Time": $("#modal-input-time").val(),
+            "Date": $("#modal-input-date").val(),
+            "ButtonStates": $("#modal-input-buttonStates").val(),
+     
+     */     //for testing
+            "UserId": 999,
+            "GameId": 999,
+            "GameName": "test",
+            "LiveSites": "12+34+56+78",
+            "Time": "test",
+            "Date": "test",
+            "ButtonStates": "87+65+43+21",
+            }
+     
+        $.ajax({
+            type: 'json',
+            data: SaveGame,
+            url: '/Minesweeper/RetrieveSavedGameModelProperties',
+            success: function (data) {
+                console.log("Calling: RetrieveSavedGameModelProperties");
+            }
+        })
     });
 
+    //reads from partial view fields and passes them to controller
+    $("#save-button").click(function () {
+        // get the values of the input fields and make a product JSON object
+        var SaveGame = {
+            "UserId": $("#modal-input-userId").val(),
+            "GameId": $("#modal-input-gameId").val(),
+            "GameName": $("#modal-input-gameName").val(),
+            "LiveSites": $("#modal-input-liveSites").val(),
+            "Time": $("#modal-input-time").val(),
+            "Date": $("#modal-input-date").val(),
+            "ButtonStates": $("#modal-input-buttonStates").val(),
+        }
+
+        //Save the update product record in the database via controller
+        $.ajax({
+            type: 'json',
+            data: SaveGame,
+            url: '/Minesweeper/SaveGame',
+            success: function (data) {
+                //show partial update for testing purposes
+                console.log("Saved to repository.");
+            }
+        })
+    });
 
     //switch case for left or right mouse clicks
     $(document).on("mousedown", ".cell", function (event) {
@@ -39,7 +91,6 @@ $(function () {
                 alert('nothing');
         }
     });
-
 });
 
 function UpdateButton(rowcol, url) {
