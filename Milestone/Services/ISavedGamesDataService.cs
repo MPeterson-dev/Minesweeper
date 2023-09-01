@@ -8,6 +8,7 @@ namespace Milestone.Services
         List<SavedGameModel> AllGames();
         SavedGameModel GetSavedGameByGameId(int id);
         bool DeleteOneGame(int id);
+        bool Insert(SavedGameModel savedGame);
 
     }
 }

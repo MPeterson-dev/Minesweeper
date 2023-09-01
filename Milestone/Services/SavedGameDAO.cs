@@ -90,32 +90,45 @@ namespace Milestone.Services
             }
         }
 
-        public void Insert(SavedGameModel aSavedGame)
+        public bool Insert(SavedGameModel savedGame)
         {
+            bool success = false;
+
             using (SqlConnection connection = new SqlConnection(connectionString))
             {
-                string insertSQLStatement = "INSERT * INTO dbo.savedgames SET UserId = @userId, GameId = @gameId, GameName = @gameName," +
-                    "LiveSites = @liveSites, Time = @time, Date = @date, ButtonStates = @buttonStates";
+                string insertSQLStatement = "INSERT INTO dbo.savedgames(userid, gameName, liveSites, time, date, buttonStates) VALUES(@userid,@gamename,@livesites,@time,@date,@buttonstates)";
 
 
-                SqlCommand command = new SqlCommand(@insertSQLStatement, connection);
-                command.Parameters.AddWithValue("@userId", aSavedGame.UserId);
-                command.Parameters.AddWithValue("@gameId", aSavedGame.GameId);
-                command.Parameters.AddWithValue("@gameName", aSavedGame.GameName);
-                command.Parameters.AddWithValue("@liveSites", aSavedGame.LiveSites);
-                command.Parameters.AddWithValue("@time", aSavedGame.Time);
-                command.Parameters.AddWithValue("@date", aSavedGame.Date);
-                command.Parameters.AddWithValue("@buttonStates", aSavedGame.ButtonStates);
+                SqlCommand cmd = new SqlCommand(@insertSQLStatement, connection);
+                cmd.Parameters.Add("@USERID", System.Data.SqlDbType.Int).Value = savedGame.UserId;
+                cmd.Parameters.Add("@GAMENAME", System.Data.SqlDbType.VarChar, 100).Value = savedGame.GameName;
+                cmd.Parameters.Add("@LIVESITES", System.Data.SqlDbType.VarChar,200).Value = savedGame.LiveSites;
+                cmd.Parameters.Add("@TIME", System.Data.SqlDbType.VarChar,50).Value = savedGame.Time;
+                cmd.Parameters.Add("@DATE", System.Data.SqlDbType.VarChar, 50).Value = savedGame.Date;
+                cmd.Parameters.Add("@BUTTONSTATES", System.Data.SqlDbType.VarChar, 200).Value = savedGame.ButtonStates;
 
                 try
                 {
                     connection.Open();
-                    SqlDataReader reader = command.ExecuteReader();
+                    int result = cmd.ExecuteNonQuery();
+
+                    if (result > 0)
+                    {
+                        success = true;
+                    }
+                    else
+                    {
+                        Debug.WriteLine("Error inserting user into database!");
+                        success = false;
+                    }
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message);
+                    success = false;
                 };
+
+                return success;
             }
         }
     }

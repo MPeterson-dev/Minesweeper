@@ -6,6 +6,8 @@ namespace Milestone.Controllers
 {
     public class LoginController : Controller
     {
+        public static int userId = 0;
+
         public IActionResult Index()
         {
             return View();
@@ -13,10 +15,11 @@ namespace Milestone.Controllers
 
         public IActionResult ProcessLogin(UserModel user)
         {
-            UserDAO securityDAO = new UserDAO();
+            UserDAO userDAO = new UserDAO();
 
-            if (securityDAO.FindUserByNameAndPasswordValid(user))
+            if (userDAO.FindUserByNameAndPasswordValid(user))
             {
+                userId = userDAO.FindUserIdByNameAndPassword(user);
                 return View("LoginSuccess", user);
             }
             else

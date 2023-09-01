@@ -32,96 +32,75 @@
         justify-content: center;
         vertical-align: middle;
     }
+
+    .font {
+        font-family: Bungee
+    }
 </style>
 
 @{
     string[] names = { "0.png", "1.png", "2.png", "3.png", "4.png", "5.png", "6.png", "7.png", "8.png", "9.png", "10.png", "11.png" };
 
     <h5 class="center"> Minesweeper </h5>
-    <div class="center" style="font-family:Bungee">
-        <p>Time: @DateTime.Now</p>
+    <div class="center font">
+                <p>Time: @Model.date @Model.time</p>
     </div>
-    <div class="center" style="display:flex;margin-bottom: 6px;font-family:Bungee">
-        <!-- Save Button trigger modal -->
-        <button type="button" style="margin-right:7.2em" class="btn btn-primary save-game-button" data-bs-toggle="modal" data-bs-target="#savegameForm">
-            Save Game
-        </button>
+    <div class="center font" style="display:flex;margin-bottom: 6px">
+                <button type="button" style="margin-right:7.2em;border-radius:12px" class="btn btn-primary save-game-button" data-bs-toggle="modal" data-bs-target="#savegameForm">
+                    Save Game
+                </button>
 
-        <a class="nav-link" style="margin-left:7.2em" asp-controller="Minesweeper" asp-action="Index">
-            <input type="submit" value="Restore Game" class="btn btn-primary" />
-        </a>
+                <a class="nav-link" style="margin-left:7.2em;border-radius:12px" asp-controller="Minesweeper" asp-action="Index">
+                    <input type="submit" value="Restore Game" class="btn btn-primary" />
+                </a>
     </div>
-
-    <div class="modal fade" id="savegameForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Save Game</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close" hidden="hidden">                        
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-                </div>
-                <div class="modal-body">
-                    <div class="form-group">
-                        <label for="UserId" class="control-label">User Id:</label>
-                        <input id="modal-input-userid" for="UserId" class="form-control" type="text" placeholder="1"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="GameId" class="control-label">Game Id:</label>
-                        <input id="modal-input-gameId" for="GameId" class="form-control" type="text" placeholder="1" />
-                    </div>
-                    <div class="form-group">
-                        <label for="GameName" class="control-label">Game name:</label>
-                        <input id="modal-input-gameName" for="GameName" class="form-control" type="text" placeholder="test" />
-                    </div>
-                    <div class="form-group">
-                        <label for="LiveSites" class="control-label">Live Sites:</label>
-                        <input id="modal-input-liveSites" for="LiveSites" class="form-control" type="text" placeholder="test" />
-                    </div>
-                    <div class="form-group">
-                        <label for="Time" class="control-label">Time:</label>
-                        <input id="modal-input-time" for="Time" class="form-control" type="text" placeholder="test" />
-                    </div>
-                    <div class="form-group">
-                        <label for="Date" class="control-label">Date:</label>
-                        <input id="modal-input-date" for="Date" class="form-control" type="text" placeholder="test" />
-                    </div>
-                    <div class="form-group">
-                        <label for="ButtonStates" class="control-label">Button States:</label>
-                        <input id="modal-input-buttonStates" for="ButtonStates" class="form-control" type="text" placeholder="test" />
-                    </div>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" id="cancel-button" data-dismiss="modal">Cancel</button>
-                    <button id="save-button" type="button" class="btn btn-primary" data-dismiss="modal">Save changes</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
 
     <form asp-controller="Minesweeper" asp-action="ButtonClick">
-        <audio id="gamemusic" src="~/Music/GameMusic.mp3" type="audio/mp3"></audio>
-        <div class="game-board center">
-            @for (int r = 0; r < Model.getSize(); r++)
+                <audio id="gamemusic" src="~/Music/GameMusic.mp3" type="audio/mp3"></audio>
+                <div class="game-board center">
+                    @for (int r = 0; r < Model.getSize(); r++)
             {
 
-                @for (int c = 0; c < Model.getSize(); c++)
+                        @for (int c = 0; c < Model.getSize(); c++)
                 {
 
                     if (@c % 10 == 0)
                     {
-                        <div class="line-break"> </div>
+                                <div class="line-break"> </div>
                     }
 
-                    <button class="cell game-button" type="submit" value=@r+@c name="rowcol">
+                            <button class="cell game-button" type="submit" value=@r+@c name="rowcol">
 
-                        <img class="cell-image" src="~/img/@names[Model.Grid[r,c].ButtonState]" id="center" />
+                                <img class="cell-image" src="~/img/@names[Model.Grid[r,c].ButtonState]" id="center" />
 
-                    </button>
+                            </button>
 
                 }
             }
-        </div>
+                </div>
     </form>
 }
+
+<div class="modal fade font" id="savegameForm" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Save Game</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close" hidden="hidden">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label for="GameName" class="control-label">Game name:</label>
+                    <input id="modal-input-gamename" name="GameName" for="GameName" class="form-control" type="text" />
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" id="cancel-button" data-bs-dismiss="modal">Cancel</button>
+                <button style="border-radius:12px" id="save-button" type="button" class="btn btn-primary" data-bs-dismiss="modal">Save changes</button>
+            </div>
+        </div>
+    </div>
+</div>
+

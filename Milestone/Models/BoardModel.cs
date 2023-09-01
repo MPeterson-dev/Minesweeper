@@ -1,10 +1,14 @@
-﻿namespace Milestone.Models
+﻿using System.Diagnostics;
+
+namespace Milestone.Models
 {
     public class BoardModel
     {
 
         public CellModel[,] Grid;
         public double difficulty;
+        public string date;
+        public string time;
         private int size;
 
 
@@ -15,6 +19,9 @@
 
         public BoardModel(int size)
         {
+            date = DateTime.Now.ToString("MM/dd/yyyy");
+            time = DateTime.Now.ToString("hh:mm:ss tt");
+
             Grid = new CellModel[size, size];
             for (int row = 0; row < size; row++)
             {

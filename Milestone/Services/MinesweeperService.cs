@@ -5,6 +5,53 @@ namespace Milestone.Services
 {
     public class MinesweeperService
     {
+
+        public string liveSitesWriter(BoardModel board)
+        {
+            string liveSites = "";
+
+            for (int row = 0; row < board.getSize(); row++)
+            {
+                for (int col = 0; col < board.getSize(); col++)
+                {
+                    if (isLive(board, row, col))
+                    {
+                        if (liveSites.Length == 0)
+                        {
+
+                            liveSites = row.ToString() + col.ToString();
+                        }
+                        else
+                        {
+                            liveSites = liveSites + "+" + row.ToString() + col.ToString();
+                        }
+                    }
+                }
+            }
+            Debug.WriteLine(liveSites);
+            return liveSites;
+        }
+
+        public string buttonStatesWriter(BoardModel board)
+        {
+            string buttonStates = "";
+
+            for (int row = 0; row < board.getSize(); row++)
+            {
+                for (int col = 0; col < board.getSize(); col++)
+                {
+                    if(buttonStates.Length == 0)
+                    {
+                        buttonStates = board.Grid[row, col].ButtonState.ToString();
+                    }
+                    else
+                    {
+                        buttonStates = buttonStates + "+" + board.Grid[row, col].ButtonState.ToString();
+                    }
+                }
+            }
+            return buttonStates;
+        }
         public Boolean gameWon(BoardModel board)
         {
             if (board.winner())

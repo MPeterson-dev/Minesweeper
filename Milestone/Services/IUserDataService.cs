@@ -7,5 +7,7 @@ namespace Milestone.Services
         bool FindUserByNameAndPasswordValid(UserModel user);
 
         bool RegisterUserValid(UserModel user);
+
+        int FindUserIdByNameAndPassword(UserModel user);
     }
 }

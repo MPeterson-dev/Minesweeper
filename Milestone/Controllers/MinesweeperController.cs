@@ -98,18 +98,23 @@ namespace Milestone.Controllers
             return PartialView(board);
         }
 
-        //Called from JS, inserts saved game into repository
-        public IActionResult SaveGame(SavedGameModel aSavedGame)
+        public void SaveGame(SavedGameModel savedGame)
         {
-            savedGameRepository.Insert(aSavedGame);
-            return View("Index");
+
+            string buttonStates = service.buttonStatesWriter(board);
+            string liveSites = service.liveSitesWriter(board);
+
+
+            SavedGameModel savedGameModel = new SavedGameModel(LoginController.userId,1,savedGame.GameName, liveSites, board.time, board.date, buttonStates);
+
+            savedGameRepository.Insert(savedGameModel);
         }
 
         public IActionResult RetrieveSavedGameModelProperties()
         {
-            //TODO: Retrieve properties from gameboard to pass into partial view using JS/Ajax. Partial view then passes to SaveGame using JS/Ajax.
             return View("Index");
         }
+
         public BoardModel newGame()
         {
             BoardModel newBoard = new BoardModel(10);

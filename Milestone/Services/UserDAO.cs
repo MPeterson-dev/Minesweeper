@@ -36,6 +36,36 @@ namespace Milestone.Services
             }
         }
 
+        public int FindUserIdByNameAndPassword(UserModel user)
+        {
+            int userId = 0;
+
+            string sqlStatment = "SELECT TOP 1 * FROM dbo.users WHERE username = @username AND password = @password ";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand(sqlStatment, connection);
+                cmd.Parameters.Add("@USERNAME", System.Data.SqlDbType.VarChar, 50).Value = user.UserName;
+                cmd.Parameters.Add("@PASSWORD", System.Data.SqlDbType.VarChar, 50).Value = user.Password;
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = cmd.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        userId = ((int)reader[0]);
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                };
+            }
+            return userId;
+        }
+
         public bool RegisterUserValid(UserModel user)
         {
             bool success = false;
