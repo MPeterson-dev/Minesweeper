@@ -1,23 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Github\\CST-350-MilestoneCLC\\Milestone\\Milestone.csproj": {}
+    "C:\\Users\\matth\\Source\\Repos\\CST-350-Milestone\\Milestone\\Milestone.csproj": {}
   },
   "projects": {
-    "D:\\Github\\CST-350-MilestoneCLC\\Milestone\\Milestone.csproj": {
+    "C:\\Users\\matth\\Source\\Repos\\CST-350-Milestone\\Milestone\\Milestone.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Github\\CST-350-MilestoneCLC\\Milestone\\Milestone.csproj",
+        "projectUniqueName": "C:\\Users\\matth\\Source\\Repos\\CST-350-Milestone\\Milestone\\Milestone.csproj",
         "projectName": "Milestone",
-        "projectPath": "D:\\Github\\CST-350-MilestoneCLC\\Milestone\\Milestone.csproj",
-        "packagesPath": "C:\\Users\\APR Services\\.nuget\\packages\\",
-        "outputPath": "D:\\Github\\CST-350-MilestoneCLC\\Milestone\\obj\\",
+        "projectPath": "C:\\Users\\matth\\Source\\Repos\\CST-350-Milestone\\Milestone\\Milestone.csproj",
+        "packagesPath": "C:\\Users\\matth\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\matth\\Source\\Repos\\CST-350-Milestone\\Milestone\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
-        ],
         "configFilePaths": [
-          "C:\\Users\\APR Services\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\matth\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -58,10 +55,29 @@
             "net47",
             "net471",
             "net472",
-            "net48"
+            "net48",
+            "net481"
           ],
           "assetTargetFallback": true,
           "warn": true,
+          "downloadDependencies": [
+            {
+              "name": "Microsoft.AspNetCore.App.Ref",
+              "version": "[6.0.12, 6.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Host.win-x86",
+              "version": "[6.0.12, 6.0.12]"
+            },
+            {
+              "name": "Microsoft.NETCore.App.Ref",
+              "version": "[6.0.12, 6.0.12]"
+            },
+            {
+              "name": "Microsoft.WindowsDesktop.App.Ref",
+              "version": "[6.0.12, 6.0.12]"
+            }
+          ],
           "frameworkReferences": {
             "Microsoft.AspNetCore.App": {
               "privateAssets": "none"
@@ -70,7 +86,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.302\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files (x86)\\dotnet\\sdk\\7.0.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -110,6 +110,11 @@ namespace Milestone.Controllers
             savedGameRepository.Insert(savedGameModel);
         }
 
+        public IActionResult RestoreGamePage()
+        {
+            return View("ShowSavedGames");
+        }
+
         public IActionResult RetrieveSavedGameModelProperties()
         {
             return View("Index");
