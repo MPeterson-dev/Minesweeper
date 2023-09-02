@@ -21,11 +21,11 @@ namespace Milestone.Controllers
 
             return View(board);
         }
+
         public IActionResult ButtonClick(string rowcol)
         {
             if (rowcol != null)
             {
-
                 string[] separate = rowcol.Split('+');
                 int row = Convert.ToInt32(separate[0]);
                 int col = Convert.ToInt32(separate[1]);
@@ -93,14 +93,12 @@ namespace Milestone.Controllers
             else
             {   //10 = flag img
                 board.Grid[row, col].ButtonState = 10;
-            }
-                        
+            }                        
             return PartialView(board);
         }
 
         public void SaveGame(SavedGameModel savedGame)
         {
-
             string buttonStates = service.buttonStatesWriter(board);
             string liveSites = service.liveSitesWriter(board);
 
@@ -144,10 +142,7 @@ namespace Milestone.Controllers
             newBoard.calculateLiveNeighbors();
             MinesweeperService.printBoards(newBoard);
             return newBoard;
-        }
-
-     
-
+        }     
 
     }
 }

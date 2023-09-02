@@ -128,7 +128,6 @@ namespace Milestone.Services
             {
                 string insertSQLStatement = "INSERT INTO dbo.savedgames(userid, gameName, liveSites, time, date, buttonStates) VALUES(@userid,@gamename,@livesites,@time,@date,@buttonstates)";
 
-
                 SqlCommand cmd = new SqlCommand(@insertSQLStatement, connection);
                 cmd.Parameters.Add("@USERID", System.Data.SqlDbType.Int).Value = savedGame.UserId;
                 cmd.Parameters.Add("@GAMENAME", System.Data.SqlDbType.VarChar, 100).Value = savedGame.GameName;

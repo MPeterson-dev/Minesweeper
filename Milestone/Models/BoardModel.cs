@@ -4,13 +4,11 @@ namespace Milestone.Models
 {
     public class BoardModel
     {
-
         public CellModel[,] Grid;
         public double difficulty;
         public string date;
         public string time;
         private int size;
-
 
         public int getSize()
         {
@@ -164,7 +162,6 @@ namespace Milestone.Models
             return (row >= 0 && row < size && col >= 0 && col < size);
         }
 
-
         public bool winner()
         {
             int counter = 0;
@@ -317,6 +314,7 @@ namespace Milestone.Models
                 }
             }
         }
+
         private void resetButtonState()
         {
             for (int row = 0; row < size; row++)

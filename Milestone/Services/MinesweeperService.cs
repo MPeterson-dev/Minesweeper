@@ -5,11 +5,9 @@ namespace Milestone.Services
 {
     public class MinesweeperService
     {
-
         public BoardModel liveSitesReader(string liveSitesString, BoardModel board)
         {
             string[] separate = liveSitesString.Split('+');
-
 
             Debug.WriteLine(separate[0][0] + " "+ separate[0][1]);
             for (int i = 0; i < separate.Length; i++)
@@ -18,7 +16,6 @@ namespace Milestone.Services
                 int col = Convert.ToInt32(Convert.ToString(separate[i][1]));
                 board.Grid[row,col].Live = true;
             }
-
             return board;
         }
 
@@ -38,12 +35,9 @@ namespace Milestone.Services
                     }
                     counter++;
                 }
-
             }
-
             return board;
         }
-
 
         public string liveSitesWriter(BoardModel board)
         {
@@ -57,7 +51,6 @@ namespace Milestone.Services
                     {
                         if (liveSites.Length == 0)
                         {
-
                             liveSites = row.ToString() + col.ToString();
                         }
                         else
@@ -91,6 +84,7 @@ namespace Milestone.Services
             }
             return buttonStates;
         }
+
         public Boolean gameWon(BoardModel board)
         {
             if (board.winner())

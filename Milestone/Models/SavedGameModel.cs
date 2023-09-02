@@ -2,7 +2,6 @@
 {
     public class SavedGameModel
     {
-
         public int UserId{ get; set; }
         public int GameId{ get; set; }
         public string GameName{ get; set; }
@@ -22,9 +21,7 @@
             ButtonStates = buttonstates;
         }
 
-        public SavedGameModel()
-        {
-
-        }
+        public SavedGameModel() { }
+                
     }
 }

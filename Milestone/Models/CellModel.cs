@@ -12,7 +12,6 @@
             buttonState = 11;
         }
 
- 
         public CellModel(int row, int column, bool isVisited, bool Live, int neighbors)
         {
             this.row = row;
@@ -23,6 +22,7 @@
         }
 
         private int row { get; set; }
+        
         public int Row
         {
             get { return row; }
@@ -30,6 +30,7 @@
         }
 
         private int column { get; set; }
+        
         public int Column
         {
             get { return column; }
@@ -37,6 +38,7 @@
         }
 
         private bool visited { get; set; }
+        
         public bool Visited
         {
             get { return visited; }
@@ -44,6 +46,7 @@
         }
 
         private bool live { get; set; }
+        
         public bool Live
         {
             get { return live; }
@@ -51,6 +54,7 @@
         }
 
         private int neighbors;
+        
         public int Neighbors
         {
             get { return neighbors; }
@@ -58,6 +62,7 @@
         }
 
         private int buttonState;
+        
         public int ButtonState
         {
             get { return buttonState; }
