@@ -60,7 +60,7 @@ $(function () {
 
             }
         })
-        //location.reload();
+        location.reload();
     });
 
     //switch case for left or right mouse clicks

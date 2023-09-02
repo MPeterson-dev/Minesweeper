@@ -114,11 +114,25 @@ namespace Milestone.Controllers
             return View("ShowSavedGames", savedGameRepository.GetSavedGameByUserId(LoginController.userId));
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult DeleteGame(int id)
         {
             savedGameRepository.DeleteOneGame(id);
 
             return RedirectToAction("Index", "Minesweeper");
+        }
+
+        public ActionResult RestoreGame(int id)
+        {
+            SavedGameModel savedGameModel = new SavedGameModel();
+            savedGameModel = savedGameRepository.GetSavedGameByGameId(id);
+            BoardModel newBoard = new BoardModel(10);
+            newBoard = service.liveSitesReader(savedGameModel.LiveSites, newBoard);
+            newBoard = service.buttonStatesReader(savedGameModel.ButtonStates, newBoard);
+            newBoard.time = savedGameModel.Time;
+            newBoard.date = savedGameModel.Date;
+            newBoard.calculateLiveNeighbors();
+            MinesweeperService.printBoards(newBoard);
+            return View("Index", newBoard);
         }
 
         public BoardModel newGame()

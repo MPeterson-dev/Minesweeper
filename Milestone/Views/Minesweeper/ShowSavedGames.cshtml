@@ -28,9 +28,9 @@
             <td>@Html.DisplayFor(modelItem => item.Date)</td>                
             
             <td>
-                @Html.ActionLink("Restore", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Restore", "RestoreGame", new {  id = item.UserId  }, null) |
 
-                @Html.ActionLink("Delete", "Delete", "Minesweeper", new {id = item.UserId}, null)
+                @Html.ActionLink("Delete", "DeleteGame", "Minesweeper", new {id = item.UserId}, null)
             </td>
         </tr>
 }

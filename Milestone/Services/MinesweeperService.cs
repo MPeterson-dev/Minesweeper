@@ -6,6 +6,45 @@ namespace Milestone.Services
     public class MinesweeperService
     {
 
+        public BoardModel liveSitesReader(string liveSitesString, BoardModel board)
+        {
+            string[] separate = liveSitesString.Split('+');
+
+
+            Debug.WriteLine(separate[0][0] + " "+ separate[0][1]);
+            for (int i = 0; i < separate.Length; i++)
+            {
+                int row = Convert.ToInt32(Convert.ToString(separate[i][0]));
+                int col = Convert.ToInt32(Convert.ToString(separate[i][1]));
+                board.Grid[row,col].Live = true;
+            }
+
+            return board;
+        }
+
+        public BoardModel buttonStatesReader(string buttonStatesString, BoardModel board)
+        {
+            int counter = 0;
+            string[] separate = buttonStatesString.Split('+');
+            for (int row = 0; row < board.getSize(); row++)
+            {
+                for (int col = 0; col < board.getSize(); col++)
+                {
+                    int buttonStates = Convert.ToInt32(Convert.ToString(separate[counter]));
+                    board.Grid[row, col].ButtonState = buttonStates;
+                    if(buttonStates != 10 && buttonStates != 11)
+                    {
+                        board.Grid[row, col].Visited = true;
+                    }
+                    counter++;
+                }
+
+            }
+
+            return board;
+        }
+
+
         public string liveSitesWriter(BoardModel board)
         {
             string liveSites = "";

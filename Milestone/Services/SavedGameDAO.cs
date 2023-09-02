@@ -135,7 +135,7 @@ namespace Milestone.Services
                 cmd.Parameters.Add("@LIVESITES", System.Data.SqlDbType.VarChar,200).Value = savedGame.LiveSites;
                 cmd.Parameters.Add("@TIME", System.Data.SqlDbType.VarChar,50).Value = savedGame.Time;
                 cmd.Parameters.Add("@DATE", System.Data.SqlDbType.VarChar, 50).Value = savedGame.Date;
-                cmd.Parameters.Add("@BUTTONSTATES", System.Data.SqlDbType.VarChar, 200).Value = savedGame.ButtonStates;
+                cmd.Parameters.Add("@BUTTONSTATES", System.Data.SqlDbType.VarChar, 400).Value = savedGame.ButtonStates;
 
                 try
                 {
