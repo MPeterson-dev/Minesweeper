@@ -5,96 +5,97 @@ build_property.UsingMicrosoftNETSdkWeb = true
 build_property.ProjectTypeGuids = 
 build_property.InvariantGlobalization = 
 build_property.PlatformNeutralAssembly = 
+build_property.EnforceExtendedAnalyzerRules = 
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = Milestone
 build_property.RootNamespace = Milestone
-build_property.ProjectDir = D:\Github\CST-350-MilestoneCLC\Milestone\
+build_property.ProjectDir = C:\Users\matth\source\repos\CST-350-Milestone\Milestone\
 build_property.RazorLangVersion = 6.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = D:\Github\CST-350-MilestoneCLC\Milestone
+build_property.MSBuildProjectDirectory = C:\Users\matth\source\repos\CST-350-Milestone\Milestone
 build_property._RazorSourceGeneratorDebug = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Home/Index.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Home/Privacy.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Login/Index.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Login/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Login/LoginFailure.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Login/LoginFailure.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW5GYWlsdXJlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Login/LoginSuccess.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Login/LoginSuccess.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTG9naW5cTG9naW5TdWNjZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Minesweeper/GameLost.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Minesweeper/GameLost.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluZXN3ZWVwZXJcR2FtZUxvc3QuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Minesweeper/GameWon.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Minesweeper/GameWon.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluZXN3ZWVwZXJcR2FtZVdvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Minesweeper/Index.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Minesweeper/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluZXN3ZWVwZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Minesweeper/RightClickShowOneButton.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Minesweeper/RightClickShowOneButton.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluZXN3ZWVwZXJcUmlnaHRDbGlja1Nob3dPbmVCdXR0b24uY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Minesweeper/ShowOneButton.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Minesweeper/ShowOneButton.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluZXN3ZWVwZXJcU2hvd09uZUJ1dHRvbi5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Minesweeper/ShowSavedGames.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Minesweeper/ShowSavedGames.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluZXN3ZWVwZXJcU2hvd1NhdmVkR2FtZXMuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Minesweeper/_saveGameModalCard.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Minesweeper/_saveGameModalCard.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcTWluZXN3ZWVwZXJcX3NhdmVHYW1lTW9kYWxDYXJkLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Register/Index.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Register/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcSW5kZXguY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Register/RegisterFailure.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Register/RegisterFailure.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcUmVnaXN0ZXJGYWlsdXJlLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Register/RegisterSuccess.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Register/RegisterSuccess.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcUmVnaXN0ZXJcUmVnaXN0ZXJTdWNjZXNzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Shared/Error.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Shared/_navbar.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Shared/_navbar.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9uYXZiYXIuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/_ViewImports.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/_ViewStart.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[D:/Github/CST-350-MilestoneCLC/Milestone/Views/Shared/_Layout.cshtml]
+[C:/Users/matth/source/repos/CST-350-Milestone/Milestone/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-qis9fl699n

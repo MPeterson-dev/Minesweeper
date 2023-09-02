@@ -118,7 +118,7 @@ namespace Milestone.Controllers
         {
             savedGameRepository.DeleteOneGame(id);
 
-            return RedirectToAction("Index", "Minesweeper");
+            return RedirectToAction("RestoreGamePage", "Minesweeper");
         }
 
         public ActionResult RestoreGame(int id)
