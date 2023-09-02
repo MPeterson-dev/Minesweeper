@@ -127,11 +127,13 @@ namespace Milestone.Controllers
             savedGameModel = savedGameRepository.GetSavedGameByGameId(id);
             BoardModel newBoard = new BoardModel(10);
             newBoard = service.liveSitesReader(savedGameModel.LiveSites, newBoard);
+            newBoard.calculateLiveNeighbors();
+
             newBoard = service.buttonStatesReader(savedGameModel.ButtonStates, newBoard);
             newBoard.time = savedGameModel.Time;
             newBoard.date = savedGameModel.Date;
-            newBoard.calculateLiveNeighbors();
             MinesweeperService.printBoards(newBoard);
+            board = newBoard;
             return View("Index", newBoard);
         }
 

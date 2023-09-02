@@ -104,14 +104,17 @@ namespace Milestone.Services
 
         public Boolean gameLost(BoardModel board, int row, int col)
         {
-            if (board.Grid[row, col].Live == true)
+            if (board.Grid[row,col].ButtonState != 10)
             {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+                if (board.Grid[row, col].Live == true)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }return false;
         }
 
         public Boolean isFlagged(BoardModel board, int row, int col)
