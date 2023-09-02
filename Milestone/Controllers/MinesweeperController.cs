@@ -111,8 +111,8 @@ namespace Milestone.Controllers
         }
 
         public IActionResult RestoreGamePage()
-        {
-            return View("ShowSavedGames");
+        {            
+            return View("ShowSavedGames", savedGameRepository.AllGames());
         }
 
         public IActionResult RetrieveSavedGameModelProperties()
@@ -132,6 +132,12 @@ namespace Milestone.Controllers
         public IActionResult RetrieveGameJSON(int id)
         {
             return Json(savedGameRepository.GetSavedGameByGameId(id));
+        }
+
+        public IActionResult DeleteSavedGame(int id)
+        {
+            savedGameRepository.DeleteOneGame(id);
+            return View("ShowSavedGames", savedGameRepository.AllGames());
         }
     }
 }

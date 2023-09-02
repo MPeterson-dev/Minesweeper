@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\matth\\Source\\Repos\\CST-350-Milestone\\Milestone\\Milestone.csproj": {}
+    "C:\\Users\\matth\\source\\repos\\CST-350-Milestone\\Milestone\\Milestone.csproj": {}
   },
   "projects": {
-    "C:\\Users\\matth\\Source\\Repos\\CST-350-Milestone\\Milestone\\Milestone.csproj": {
+    "C:\\Users\\matth\\source\\repos\\CST-350-Milestone\\Milestone\\Milestone.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\matth\\Source\\Repos\\CST-350-Milestone\\Milestone\\Milestone.csproj",
+        "projectUniqueName": "C:\\Users\\matth\\source\\repos\\CST-350-Milestone\\Milestone\\Milestone.csproj",
         "projectName": "Milestone",
-        "projectPath": "C:\\Users\\matth\\Source\\Repos\\CST-350-Milestone\\Milestone\\Milestone.csproj",
+        "projectPath": "C:\\Users\\matth\\source\\repos\\CST-350-Milestone\\Milestone\\Milestone.csproj",
         "packagesPath": "C:\\Users\\matth\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\matth\\Source\\Repos\\CST-350-Milestone\\Milestone\\obj\\",
+        "outputPath": "C:\\Users\\matth\\source\\repos\\CST-350-Milestone\\Milestone\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\matth\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "Microsoft.AspNet.WebApi.Core": {
+              "target": "Package",
+              "version": "[5.2.9, )"
+            },
             "Microsoft.VisualStudio.Web.CodeGeneration.Design": {
               "target": "Package",
               "version": "[6.0.16, )"

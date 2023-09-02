@@ -1,18 +1,25 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Milestone.Models;
 using Milestone.Services;
+using System.Web.Http.Description;
 
 namespace Milestone.Controllers
 {
     [ApiController]
-    [Route("api/")]
+    [Route("api/[controller]")]
 
-    public class SavedGameAPIController : Controller
+    public class SavedGameAPIController : ControllerBase
     {
         SavedGameDAO repository = new SavedGameDAO();
 
-        [HttpGet("showSavedGames")]
-        public ActionResult<IEnumerable<SavedGameModel>> Index()
+        public SavedGameAPIController()
+        {
+            repository = new SavedGameDAO();
+        }
+
+        [HttpGet("ShowSavedGames")]
+        [ResponseType(typeof(List<SavedGameModel>))]
+        public IEnumerable<SavedGameModel> Index()
         {
             return repository.AllGames();
         }
