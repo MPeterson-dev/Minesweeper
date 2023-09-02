@@ -36,6 +36,36 @@ namespace Milestone.Services
             return foundGames;
         }
 
+        public List<SavedGameModel> GetSavedGameByUserId(int id)
+        {
+            List<SavedGameModel> foundGames = new List<SavedGameModel>();
+
+            String sqlStatment = "SELECT * FROM dbo.savedgames WHERE userid = @id";
+
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand command = new SqlCommand(sqlStatment, connection);
+
+                command.Parameters.AddWithValue("@id", id);
+
+                try
+                {
+                    connection.Open();
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        foundGames.Add(new SavedGameModel((int)reader[0], (int)reader[1], (string)reader[2], (string)reader[3], (string)reader[4], (string)reader[5], (string)reader[6]));
+                    }
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine(ex.Message);
+                };
+            }
+            return foundGames;
+        }
+
         public SavedGameModel GetSavedGameByGameId(int id)
         {
             SavedGameModel foundGames = null;

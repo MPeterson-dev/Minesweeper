@@ -915,3 +915,6 @@ C:\Users\matth\Source\Repos\CST-350-Milestone\Milestone\obj\Debug\net6.0\ref\Mil
 C:\Users\matth\source\repos\CST-350-Milestone\Milestone\bin\Debug\net6.0\System.Net.Http.Formatting.dll
 C:\Users\matth\source\repos\CST-350-Milestone\Milestone\bin\Debug\net6.0\System.Web.Http.dll
 C:\Users\matth\source\repos\CST-350-Milestone\Milestone\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\Github\CST-350-MilestoneCLC\Milestone\bin\Debug\net6.0\System.Net.Http.Formatting.dll
+D:\Github\CST-350-MilestoneCLC\Milestone\bin\Debug\net6.0\System.Web.Http.dll
+D:\Github\CST-350-MilestoneCLC\Milestone\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll

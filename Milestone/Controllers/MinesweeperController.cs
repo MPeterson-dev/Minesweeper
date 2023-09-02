@@ -104,7 +104,6 @@ namespace Milestone.Controllers
             string buttonStates = service.buttonStatesWriter(board);
             string liveSites = service.liveSitesWriter(board);
 
-
             SavedGameModel savedGameModel = new SavedGameModel(LoginController.userId,1,savedGame.GameName, liveSites, board.time, board.date, buttonStates);
 
             savedGameRepository.Insert(savedGameModel);
@@ -112,12 +111,14 @@ namespace Milestone.Controllers
 
         public IActionResult RestoreGamePage()
         {            
-            return View("ShowSavedGames", savedGameRepository.AllGames());
+            return View("ShowSavedGames", savedGameRepository.GetSavedGameByUserId(LoginController.userId));
         }
 
-        public IActionResult RetrieveSavedGameModelProperties()
+        public ActionResult Delete(int id)
         {
-            return View("Index");
+            savedGameRepository.DeleteOneGame(id);
+
+            return RedirectToAction("Index", "Minesweeper");
         }
 
         public BoardModel newGame()
@@ -129,15 +130,8 @@ namespace Milestone.Controllers
             return newBoard;
         }
 
-        public IActionResult RetrieveGameJSON(int id)
-        {
-            return Json(savedGameRepository.GetSavedGameByGameId(id));
-        }
+     
 
-        public IActionResult DeleteSavedGame(int id)
-        {
-            savedGameRepository.DeleteOneGame(id);
-            return View("ShowSavedGames", savedGameRepository.AllGames());
-        }
+
     }
 }
