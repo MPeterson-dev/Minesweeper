@@ -8,6 +8,12 @@ namespace Milestone.Services
     {
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=cst350;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
+        /// <summary>
+        /// The function retrieves all saved games from a database and returns them as a list of SavedGameModel objects.
+        /// </summary>
+        /// <returns>
+        /// The method is returning a List of SavedGameModel objects.
+        /// </returns>
         public List<SavedGameModel> AllGames()
         {
             List<SavedGameModel> foundGames = new List<SavedGameModel>();
@@ -36,6 +42,14 @@ namespace Milestone.Services
             return foundGames;
         }
 
+        /// <summary>
+        /// The function retrieves a list of saved game models from the database based on the provided user ID.
+        /// </summary>
+        /// <param name="id">The "id" parameter is an integer representing the user ID for which we want to retrieve the
+        /// saved games.</param>
+        /// <returns>
+        /// The method is returning a List of SavedGameModel objects.
+        /// </returns>
         public List<SavedGameModel> GetSavedGameByUserId(int id)
         {
             List<SavedGameModel> foundGames = new List<SavedGameModel>();
@@ -66,6 +80,14 @@ namespace Milestone.Services
             return foundGames;
         }
 
+        /// <summary>
+        /// The function retrieves a saved game from the database based on the provided game ID.
+        /// </summary>
+        /// <param name="id">The parameter `id` is an integer representing the game ID. It is used to filter the saved games
+        /// and retrieve the saved game with the matching game ID.</param>
+        /// <returns>
+        /// The method is returning a SavedGameModel object.
+        /// </returns>
         public SavedGameModel GetSavedGameByGameId(int id)
         {
             SavedGameModel foundGames = null;
@@ -96,6 +118,16 @@ namespace Milestone.Services
             return foundGames;
         }
 
+        /// <summary>
+        /// The DeleteOneGame function deletes a game from the savedgames table in the database based on the provided game
+        /// id.
+        /// </summary>
+        /// <param name="id">The id parameter is an integer that represents the game id of the game that needs to be deleted
+        /// from the "savedgames" table in the database.</param>
+        /// <returns>
+        /// The method is returning a boolean value. It returns true if the deletion of the game with the specified id was
+        /// successful, and false if there was an exception or error during the deletion process.
+        /// </returns>
         public bool DeleteOneGame(int id)
         {
             using (SqlConnection connection = new SqlConnection(connectionString))
@@ -120,6 +152,16 @@ namespace Milestone.Services
             }
         }
 
+        /// <summary>
+        /// The function inserts a SavedGameModel object into a database table and returns a boolean indicating the success
+        /// of the operation.
+        /// </summary>
+        /// <param name="SavedGameModel">SavedGameModel is a model class that represents a saved game. It contains the
+        /// following properties:</param>
+        /// <returns>
+        /// The method is returning a boolean value indicating whether the insertion of the saved game was successful or
+        /// not.
+        /// </returns>
         public bool Insert(SavedGameModel savedGame)
         {
             bool success = false;

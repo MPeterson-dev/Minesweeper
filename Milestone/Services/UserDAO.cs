@@ -8,6 +8,16 @@ namespace Milestone.Services
     {
         string connectionString = @"Data Source=(localdb)\MSSQLLocalDB;Initial Catalog=cst350;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
 
+        /// <summary>
+        /// The function FindUserByNameAndPasswordValid checks if a user with a given username and password exists in the
+        /// database.
+        /// </summary>
+        /// <param name="UserModel">A model class that represents a user. It contains properties for the user's username and
+        /// password.</param>
+        /// <returns>
+        /// The method is returning a boolean value indicating whether the user with the given username and password exists
+        /// in the database.
+        /// </returns>
         public bool FindUserByNameAndPasswordValid(UserModel user)
         {
             bool success = false;
@@ -36,6 +46,15 @@ namespace Milestone.Services
             }
         }
 
+        /// <summary>
+        /// The function FindUserIdByNameAndPassword takes a UserModel object as input and returns the user ID of the user
+        /// with the matching username and password in the database.
+        /// </summary>
+        /// <param name="UserModel">A model class that represents a user. It contains properties for the user's username and
+        /// password.</param>
+        /// <returns>
+        /// The method is returning an integer value, which represents the user ID.
+        /// </returns>
         public int FindUserIdByNameAndPassword(UserModel user)
         {
             int userId = 0;
@@ -66,6 +85,15 @@ namespace Milestone.Services
             return userId;
         }
 
+        /// <summary>
+        /// The function `RegisterUserValid` inserts a user into a database table and returns a boolean value indicating
+        /// whether the operation was successful or not.
+        /// </summary>
+        /// <param name="UserModel">A model class that represents a user with properties such as FirstName, LastName, Sex,
+        /// Age, State, Email, UserName, and Password.</param>
+        /// <returns>
+        /// The method is returning a boolean value indicating whether the user registration was successful or not.
+        /// </returns>
         public bool RegisterUserValid(UserModel user)
         {
             bool success = false;
