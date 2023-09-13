@@ -41,5 +41,10 @@ namespace Milestone.Models
         [Required]
         [DataType(DataType.Password)]
         public string Password { get; set; }
+
+        public override string ToString()
+        {
+            return "Username = " + UserName + " Password = " + Password;
+        }
     }
 }

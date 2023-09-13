@@ -1,0 +1,6 @@
+2023-09-13 14:41:41.3134 INFO Entering in the ProcessLogin Method
+2023-09-13 14:41:41.3752 INFO Parameter: Username = NoahF Password = 1234
+2023-09-13 14:41:41.7228 INFO Login Failure
+2023-09-13 14:41:47.3653 INFO Entering in the ProcessLogin Method
+2023-09-13 14:41:47.3653 INFO Parameter: Username = Noah Password = 1234
+2023-09-13 14:41:47.3867 INFO Login success

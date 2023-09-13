@@ -918,3 +918,5 @@ C:\Users\matth\source\repos\CST-350-Milestone\Milestone\bin\Debug\net6.0\Newtons
 D:\Github\CST-350-MilestoneCLC\Milestone\bin\Debug\net6.0\System.Net.Http.Formatting.dll
 D:\Github\CST-350-MilestoneCLC\Milestone\bin\Debug\net6.0\System.Web.Http.dll
 D:\Github\CST-350-MilestoneCLC\Milestone\bin\Debug\net6.0\Newtonsoft.Json.Bson.dll
+D:\Github\CST-350-MilestoneCLC\Milestone\bin\Debug\net6.0\NLog.config
+D:\Github\CST-350-MilestoneCLC\Milestone\bin\Debug\net6.0\NLog.dll
