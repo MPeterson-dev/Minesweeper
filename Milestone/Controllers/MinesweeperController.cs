@@ -15,13 +15,13 @@ namespace Milestone.Controllers
 
         SavedGameDAO savedGameRepository = new SavedGameDAO();
 
+
         /// <summary>
-        /// The function initializes a new game board and returns it to the view.
+        /// The above function is an HTTP GET endpoint that returns the Index view with a new game board.
         /// </summary>
         /// <returns>
-        /// The method is returning a View with the board as the model.
+        /// The method is returning a View with the "board" object as the model.
         /// </returns>
-        /// 
         [HttpGet]
         [CustomAuthorization]
         public IActionResult Index()

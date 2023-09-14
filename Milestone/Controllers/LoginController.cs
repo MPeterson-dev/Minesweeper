@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Milestone.Models;
 using Milestone.Services;
+using Milestone.Utility;
 using NLog;
 
 namespace Milestone.Controllers
@@ -21,20 +22,23 @@ namespace Milestone.Controllers
             return View();
         }
 
+
         /// <summary>
-        /// The ProcessLogin function checks if the user's name and password are valid, and returns a success or failure
-        /// view accordingly.
+        /// The ProcessLogin function checks if the provided user credentials are valid, logs the user in if they are, and
+        /// returns the appropriate view.
         /// </summary>
-        /// <param name="UserModel">The UserModel is a class that represents a user in the system. It typically contains
-        /// properties such as username, password, email, and other relevant information about the user.</param>
+        /// <param name="UserModel">UserModel is a class that represents a user in the system. It contains properties such
+        /// as UserName and Password, which are used to authenticate the user during the login process.</param>
         /// <returns>
-        /// The method is returning an IActionResult.
+        /// The method is returning an IActionResult. The specific view being returned depends on whether the user login is
+        /// successful or not. If the login is successful, the method returns the "LoginSuccess" view with the user model as
+        /// the parameter. If the login is unsuccessful, the method returns the "LoginFailure" view with the user model as
+        /// the parameter.
         /// </returns>
+        [LogActionFilter]
         public IActionResult ProcessLogin(UserModel user)
         {
             UserDAO userDAO = new UserDAO();
-            logger.Info("Entering in the ProcessLogin Method");
-            logger.Info("Parameter: " + user.ToString());
 
             if (userDAO.FindUserByNameAndPasswordValid(user))
             {
@@ -42,7 +46,7 @@ namespace Milestone.Controllers
                 HttpContext.Session.SetString("username", user.UserName);
 
                 userId = userDAO.FindUserIdByNameAndPassword(user);
-                logger.Info("Login success");
+                MyLogger.GetInstance().Info("Login Success");
                 return View("LoginSuccess", user);
             }
             else
@@ -50,7 +54,7 @@ namespace Milestone.Controllers
                 //remove if unsuccessful
                 HttpContext.Session.Remove("username");
 
-                logger.Info("Login Failure");
+                MyLogger.GetInstance().Info("Login Failure");
                 return View("LoginFailure", user);
             }
         }
