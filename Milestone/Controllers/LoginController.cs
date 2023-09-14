@@ -36,15 +36,20 @@ namespace Milestone.Controllers
             logger.Info("Entering in the ProcessLogin Method");
             logger.Info("Parameter: " + user.ToString());
 
-
             if (userDAO.FindUserByNameAndPasswordValid(user))
             {
+                //remember user logged in
+                HttpContext.Session.SetString("username", user.UserName);
+
                 userId = userDAO.FindUserIdByNameAndPassword(user);
                 logger.Info("Login success");
                 return View("LoginSuccess", user);
             }
             else
             {
+                //remove if unsuccessful
+                HttpContext.Session.Remove("username");
+
                 logger.Info("Login Failure");
                 return View("LoginFailure", user);
             }

@@ -21,6 +21,9 @@ namespace Milestone.Controllers
         /// <returns>
         /// The method is returning a View with the board as the model.
         /// </returns>
+        /// 
+        [HttpGet]
+        [CustomAuthorization]
         public IActionResult Index()
         {
             board = newGame();
